@@ -15,6 +15,20 @@ const page = {
       options: { source: "title", maxLength: 96 }
     },
     {
+      name: "image",
+      title: "Image",
+      type: "image",
+      description: 'Optional',
+      options: { hotspot: true },
+      fields: [
+        {
+          name: "alt",
+          title: "Alt",
+          type: "string"
+        }
+      ]
+    },
+    {
       name: "content",
       title: "Content",
       type: "array",
