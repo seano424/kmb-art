@@ -1,7 +1,7 @@
 // The schema of the Milestone object-type
-const artPieces = {
-  name: 'art-pieces',
-  title: 'Art Pieces',
+const images = {
+  name: 'images',
+  title: 'Images',
   type: 'object',
   fields: [
     {
@@ -21,4 +21,4 @@ const artPieces = {
   ],
 }
 
-export default artPieces
+export default images

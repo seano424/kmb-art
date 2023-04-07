@@ -1,6 +1,6 @@
-const artSeries = {
-  title: 'Art Series',
-  name: 'art-series',
+const art = {
+  title: 'Art',
+  name: 'art',
   type: 'document',
   fields: [
     {
@@ -39,7 +39,7 @@ const artSeries = {
       name: 'images',
       title: 'Images',
       type: 'array',
-      of: [{ type: 'art-pieces' }],
+      of: [{ type: 'images' }],
     },
   ],
   preview: {
@@ -50,4 +50,4 @@ const artSeries = {
   },
 }
 
-export default artSeries
+export default art
