@@ -1,6 +1,8 @@
 import project from './project-schema'
-import page from "./page-schema"
+import page from './page-schema'
+import artPieces from './art-pieces-schema'
+import artSeries from './art-series-schema'
 
-const schemas = [project, page];
+const schemas = [project, artSeries, artPieces, page]
 
-export default schemas;
+export default schemas
