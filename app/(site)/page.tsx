@@ -1,40 +1,51 @@
-import { getArtSeries, getProjects } from "@/sanity/sanity-utils"
+import { getArtSeries, getProjects } from '@/sanity/sanity-utils'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default async function Home() {
-  const projects = await getProjects();
-  const art = await getArtSeries()
+  const projects = await getProjects()
+  const artSeries = await getArtSeries()
 
-  console.log('art: ', art);
-  
+  console.log('art: ', artSeries)
 
   return (
     <div>
-      <h1 className="text-7xl font-extrabold text-gray-700">Hello I&apos;m
-        <span className="bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent"> Karrie Marie!</span>
+      <h1 className='text-7xl font-extrabold text-gray-700'>
+        Hello I&apos;m
+        <span className='bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent'>
+          {' '}
+          Karrie Marie!
+        </span>
       </h1>
-      <p className="mt-3 text-xl text-gray-600">Hey everyone! Check out my artwork!</p>
-      <h2 className="mt-24 font-bold text-gray-700 text-3xl">My Art</h2>
+      <p className='mt-3 text-xl text-gray-600'>
+        Hey everyone! Check out my art!
+      </p>
+      <h2 className='mt-24 font-bold text-gray-700 text-3xl'>
+        My Art Collection
+      </h2>
 
-      <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-8">{projects.map((project) => (
-        <Link href={`/projects/${project.slug}`} key={project._id} className="border-2 border-gray-500 rounded-lg p-1 hover:scale-105 hover:border-blue-500 transition">
-          {project.image && (
-            <Image
-              src={project.image}
-              alt={project.name}
-              width={750}
-              height={300}
-              className="object-cover rounded-lg border border-gray-500"
-            />
-          )}
-          <div className="mt-2 font-extrabold bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent">
-            {project.name}
-          </div>
-        </Link>
-      ))}
+      <div className='mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
+        {artSeries.map((series) => (
+          <Link
+            href={`/projects/${series.slug}`}
+            key={series._id}
+            className='border-2 border-gray-500 rounded-lg p-1 hover:scale-105 hover:border-blue-500 transition'
+          >
+            {series.image && (
+              <Image
+                src={series.image}
+                alt={series.alt ?? `Feature image for ${series.title}`}
+                width={750}
+                height={300}
+                className='object-cover rounded-lg border border-gray-500'
+              />
+            )}
+            <div className='mt-2 font-extrabold bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent'>
+              {series.title}
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   )
-
 }
