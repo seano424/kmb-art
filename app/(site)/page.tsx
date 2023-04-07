@@ -6,7 +6,7 @@ export default async function Home() {
   const projects = await getProjects();
   const art = await getArtSeries()
 
-  console.log('art: ', art[0].images);
+  console.log('art: ', art);
   
 
   return (

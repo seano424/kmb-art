@@ -25,7 +25,8 @@ export async function getArtSeries(): Promise<Art[]> {
       _id,
       "category": category.title,
       "slug": slug.current,
-      "featureImage": featureImage.asset,
+      "image": featureImage.asset->url,
+      "alt": featureImage.alt,
       'images': images[] {
         alt,
         "url": image.asset->url
