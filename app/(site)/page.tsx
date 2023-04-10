@@ -1,15 +1,25 @@
-import { getArtSeries } from '@/sanity/sanity-utils'
+import { getArtSeries, getHomepageImages } from '@/sanity/sanity-utils'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default async function Home() {
   const artSeries = await getArtSeries()
+  const homepageImages = await getHomepageImages()
 
-  console.log('art: ', artSeries)
+  console.log('art: ', homepageImages)
 
   return (
     <div className='mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-      {artSeries.map((series) => (
+      {homepageImages[0].images.map((img) => (
+        <Image
+          src={img.url}
+          alt={img.alt ?? `Feature image for ${img.alt}`}
+          width={750}
+          height={300}
+          className='object-cover rounded-lg'
+        />
+      ))}
+      {/* {artSeries.map((series) => (
         <Link
           href={`/projects/${series.slug}`}
           key={series._id}
@@ -28,7 +38,7 @@ export default async function Home() {
             {series.title}
           </div>
         </Link>
-      ))}
+      ))} */}
     </div>
   )
 }

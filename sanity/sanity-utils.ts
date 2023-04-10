@@ -3,6 +3,7 @@ import { Project } from '@/types/Project'
 import clientConfig from './config/client-config'
 import { Page } from '@/types/Page'
 import { Art } from '@/types/Art'
+import { HomepageImages } from '@/types/HomepageImages'
 
 export async function getProjects(): Promise<Project[]> {
   return createClient(clientConfig).fetch(
@@ -27,6 +28,19 @@ export async function getArtSeries(): Promise<Art[]> {
       "slug": slug.current,
       "image": featureImage.asset->url,
       "alt": featureImage.alt,
+      'images': images[] {
+        alt,
+        "url": image.asset->url
+      }
+    }`
+  )
+}
+
+export async function getHomepageImages(): Promise<HomepageImages[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "homepageImages"]{
+      _id,
+      _createdAt,
       'images': images[] {
         alt,
         "url": image.asset->url
