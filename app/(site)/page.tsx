@@ -1,9 +1,8 @@
-import { getArtSeries, getProjects } from '@/sanity/sanity-utils'
+import { getArtSeries } from '@/sanity/sanity-utils'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default async function Home() {
-  const projects = await getProjects()
   const artSeries = await getArtSeries()
 
   console.log('art: ', artSeries)
