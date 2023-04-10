@@ -24,7 +24,7 @@ const config = defineConfig({
                   .documentId('homepageImages')
               ),
             ...S.documentTypeListItems().filter(
-              (listItem) => !['homepageImages'].includes(listItem.getId())
+              (listItem: any) => !['homepageImages'].includes(listItem.getId())
             ),
           ]),
     }),

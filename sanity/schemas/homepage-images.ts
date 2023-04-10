@@ -1,4 +1,5 @@
 import { ImagesIcon } from '@sanity/icons'
+import { Rule } from 'sanity'
 
 const homepageImages = {
   name: 'homepageImages',
@@ -16,7 +17,7 @@ const homepageImages = {
       title: 'Images',
       type: 'array',
       of: [{ type: 'images' }],
-      validation: (Rule) => Rule.required().min(3).max(3),
+      validation: (Rule: Rule) => Rule.required().min(3).max(3),
     },
   ],
 }
