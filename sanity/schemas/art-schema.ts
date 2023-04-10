@@ -1,7 +1,10 @@
+import { PresentationIcon } from '@sanity/icons'
+
 const art = {
   title: 'Art',
   name: 'art',
   type: 'document',
+  icon: PresentationIcon,
   fields: [
     {
       name: 'title',
