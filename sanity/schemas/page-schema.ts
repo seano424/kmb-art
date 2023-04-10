@@ -1,42 +1,43 @@
+import { CircleIcon } from '@sanity/icons'
+
 const page = {
-  name: "page",
-  title: "Pages",
-  type: "document",
+  name: 'page',
+  title: 'Pages',
+  type: 'document',
+  icon: CircleIcon,
   fields: [
     {
-      name: "title",
-      title: "Title",
-      type: "string"
+      name: 'title',
+      title: 'Title',
+      type: 'string',
     },
     {
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      options: { source: "title", maxLength: 96 }
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: { source: 'title', maxLength: 96 },
     },
     {
-      name: "image",
-      title: "Image",
-      type: "image",
+      name: 'image',
+      title: 'Image',
+      type: 'image',
       description: 'Optional',
       options: { hotspot: true },
       fields: [
         {
-          name: "alt",
-          title: "Alt",
-          type: "string"
-        }
-      ]
+          name: 'alt',
+          title: 'Alt',
+          type: 'string',
+        },
+      ],
     },
     {
-      name: "content",
-      title: "Content",
-      type: "array",
-      of: [
-        { type: "block" }
-      ]
-    }
-  ]
+      name: 'content',
+      title: 'Content',
+      type: 'array',
+      of: [{ type: 'block' }],
+    },
+  ],
 }
 
-export default page;
+export default page
