@@ -1,8 +1,8 @@
 import page from './page-schema'
 import images from './images-schema'
 import art from './art-schema'
-import homepageImages from './homepage-images'
+import homepageSeries from './homepage-series'
 
-const schemas = [art, images, page, homepageImages]
+const schemas = [art, images, page, homepageSeries]
 
 export default schemas

@@ -4,8 +4,8 @@ export type Art = {
   title: string
   slug: string
   category?: string
-  image?: string
-  alt?: string
+  featureImage?: string
+  featureImageAlt?: string
   images?: {
     alt: string
     url: string

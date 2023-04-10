@@ -3,7 +3,7 @@ import { Project } from '@/types/Project'
 import clientConfig from './config/client-config'
 import { Page } from '@/types/Page'
 import { Art } from '@/types/Art'
-import { HomepageImages } from '@/types/HomepageImages'
+import { HomepageSeries } from '@/types/HomepageSeries'
 
 export async function getProjects(): Promise<Project[]> {
   return createClient(clientConfig).fetch(
@@ -19,32 +19,33 @@ export async function getProjects(): Promise<Project[]> {
   )
 }
 
-export async function getArtSeries(): Promise<Art[]> {
+export async function getArtSeries(id: string): Promise<Art> {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "art"]{
+    groq`*[_type == "art" && id == $id]{
       _createdAt,
       _id,
       "category": category.title,
       "slug": slug.current,
-      "image": featureImage.asset->url,
-      "alt": featureImage.alt,
+      "featureImage": featureImage.asset->url,
+      "featureImageAlt": featureImage.alt,
       'images': images[] {
         alt,
         "url": image.asset->url
       }
-    }`
+    }`,
+    { id }
   )
 }
 
-export async function getHomepageImages(): Promise<HomepageImages[]> {
+// artSeries[]-> | order(_createdAt asc)
+
+export async function getHomepageSeries(): Promise<HomepageSeries[]> {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "homepageImages"]{
-      _id,
-      _createdAt,
-      'images': images[] {
-        alt,
-        "url": image.asset->url
-      }
+    groq`*[_type == "homepageImages"][0].artSeries[]-> | order(_createdAt desc){
+      "imageUrl": featureImage.asset->url,
+      "alt": featureImage.alt,
+      "slug": slug.current,
+      _createdAt
     }`
   )
 }

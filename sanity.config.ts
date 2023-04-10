@@ -16,15 +16,15 @@ const config = defineConfig({
           .title('Content')
           .items([
             S.listItem()
-              .title('Homepage Images')
+              .title('Homepage Series / Images')
               .icon(ImagesIcon)
               .child(
                 S.document()
-                  .schemaType('homepageImages')
-                  .documentId('homepageImages')
+                  .schemaType('homepageSeries')
+                  .documentId('homepageSeries')
               ),
             ...S.documentTypeListItems().filter(
-              (listItem: any) => !['homepageImages'].includes(listItem.getId())
+              (listItem: any) => !['homepageSeries'].includes(listItem.getId())
             ),
           ]),
     }),

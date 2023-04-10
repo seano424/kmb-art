@@ -2,8 +2,8 @@ import { ImagesIcon } from '@sanity/icons'
 import { Rule } from 'sanity'
 
 const homepageImages = {
-  name: 'homepageImages',
-  title: 'Homepage Images',
+  name: 'homepageSeries',
+  title: 'Homepage Series',
   icon: ImagesIcon,
   type: 'document',
   fields: [
@@ -13,11 +13,16 @@ const homepageImages = {
       type: 'string',
     },
     {
-      name: 'images',
-      title: 'Images',
+      name: 'artSeries',
+      title: 'Art Series',
       type: 'array',
-      of: [{ type: 'images' }],
-      validation: (Rule: Rule) => Rule.required().min(3).max(3),
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'art' }],
+        },
+      ],
+      validation: (Rule: Rule) => Rule.max(3),
     },
   ],
 }
