@@ -12,7 +12,9 @@ export default async function Work({ params }: Props) {
 
   return (
     <div>
-      <p className='text-center pb-10'>{work.title}</p>
+      {work.description && (
+        <p className='text-center pb-10'>{work.description}</p>
+      )}
       <div className='flex flex-wrap items-center justify-center gap-5'>
         {work.images &&
           work.images.map((img) => (
@@ -20,8 +22,8 @@ export default async function Work({ params }: Props) {
               key={img.url}
               src={img.url}
               alt={img.alt}
-              height={500}
-              width={500}
+              height={600}
+              width={600}
               className='object-contain'
             />
           ))}
