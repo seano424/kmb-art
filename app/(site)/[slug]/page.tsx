@@ -10,24 +10,19 @@ export default async function Page({ params }: Props) {
   const page = await getPage(params.slug)
 
   return (
-    <div className='flex flex-col gap-10'>
-      {page?.title && (
-        <h1 className='bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent text-5xl drop-shadow font-extrabold'>
-          {page.title}
-        </h1>
-      )}
+    <div className='flex flex-col items-center gap-10 container py-5 max-w-2xl'>
       {page?.image && (
-        <div className='relative h-[500px] w-full'>
+        <div className='relative h-[300px] w-[300px]'>
           <Image
             src={page.image}
             alt={page.alt!}
-            className='object-cover rounded-lg'
+            className='object-cover rounded-full'
             fill
           />
         </div>
       )}
       {page?.content && (
-        <div className='text-lg text-gray-700 prose'>
+        <div className='text-lg text-center text-gray-700 prose'>
           <PortableText value={page.content} />
         </div>
       )}

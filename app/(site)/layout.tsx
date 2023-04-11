@@ -21,7 +21,7 @@ export default async function RootLayout({
 
   return (
     <html lang='en'>
-      <body className={clsx('max-w-8xl mx-auto py-10', montserrat.className)}>
+      <body className={clsx('max-w-8xl mx-auto py-20', montserrat.className)}>
         <header className='flex flex-col gap-5 items-center uppercase'>
           <Link className='text-2xl font-bold' href='/'>
             Karrie Marie

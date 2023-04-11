@@ -1,8 +1,10 @@
 'use client'
 
-import { Art } from '@/types/Art'
 import { useState } from 'react'
+import { Art } from '@/types/Art'
+import Link from 'next/link'
 import Image from 'next/image'
+import clsx from 'clsx'
 
 const filters = [
   { title: 'All Works', value: '' },
@@ -22,7 +24,13 @@ export const Filter = ({ works }: Props) => {
     <div className='grid gap-10'>
       <div className='flex justify-end gap-10'>
         {filters.map((filter) => (
-          <button onClick={() => setFilterValue(filter.value)}>
+          <button
+            className={clsx(
+              filterValue === filter.value ? 'underline' : 'no-underline',
+              'underline-offset-8'
+            )}
+            onClick={() => setFilterValue(filter.value)}
+          >
             {filter.title}
           </button>
         ))}
@@ -32,7 +40,11 @@ export const Filter = ({ works }: Props) => {
         {works
           .filter((work) => work.category!.includes(filterValue))
           .map((filteredWork) => (
-            <div className='relative h-[500px]' key={filteredWork._id}>
+            <Link
+              href={`/work/${filteredWork.slug}`}
+              className='relative h-[500px] group'
+              key={filteredWork._id}
+            >
               <Image
                 src={filteredWork.featureImage}
                 alt={
@@ -42,7 +54,12 @@ export const Filter = ({ works }: Props) => {
                 className='rounded object-cover'
                 fill
               />
-            </div>
+              <div className='group-hover:bg-opacity-40 group-hover:opacity-100 opacity-0 absolute inset-0 flex justify-center items-center bg-opacity-0 bg-black transition-all duration-100 ease-linear'>
+                <p className='uppercase text-3xl text-white'>
+                  {filteredWork.title}
+                </p>
+              </div>
+            </Link>
           ))}
       </div>
     </div>
