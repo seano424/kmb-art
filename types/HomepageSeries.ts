@@ -3,4 +3,5 @@ export type HomepageSeries = {
   alt: string
   imageUrl: string
   slug: string
+  title: string
 }

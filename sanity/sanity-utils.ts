@@ -46,6 +46,7 @@ export async function getHomepageSeries(): Promise<HomepageSeries[]> {
       "imageUrl": featureImage.asset->url,
       "alt": featureImage.alt,
       "slug": slug.current,
+      title,
       _createdAt
     }`
   )
