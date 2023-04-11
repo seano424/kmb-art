@@ -25,7 +25,7 @@ export async function getWorks(): Promise<Art[]> {
       _createdAt,
       _id,
       title,
-      "category": category.title,
+      category,
       "slug": slug.current,
       "featureImage": featureImage.asset->url,
       "featureImageAlt": featureImage.alt,
