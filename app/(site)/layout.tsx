@@ -1,16 +1,11 @@
 import '../globals.css'
 import Link from 'next/link'
 import { getPages } from '@/sanity/sanity-utils'
-import { Roboto, Playfair_Display } from 'next/font/google'
+import { Montserrat, Poppins } from 'next/font/google'
 import clsx from 'clsx'
 
-const roboto = Roboto({
-  weight: ['400', '700'],
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-})
-
-const playfair = Playfair_Display({ subsets: ['latin'] })
+const montserrat = Montserrat({ subsets: ['latin'] })
+const poppins = Poppins({ weight: ['400', '700'], subsets: ['latin'] })
 
 export const metadata = {
   title: 'Karrie Marie Baxley, artist, painter',
@@ -26,23 +21,12 @@ export default async function RootLayout({
 
   return (
     <html lang='en'>
-      <body className={clsx('max-w-6xl mx-auto py-10', roboto.className)}>
-        <header className='flex flex-col items-center gap-5'>
-          <Link href='/'>
-            <h1
-              className={clsx(
-                'text-8xl font-bold text-[#211F20]',
-                playfair.className
-              )}
-            >
-              {' '}
-              <span className='bg-gradient-to-r from-cyan-400 via-sky-600 to-purple-800 bg-clip-text text-transparent'>
-                {' '}
-                Karrie Marie
-              </span>
-            </h1>
+      <body className={clsx('max-w-6xl mx-auto py-20', montserrat.className)}>
+        <header className='flex flex-col gap-10 items-center uppercase'>
+          <Link className='text-4xl font-bold' href='/'>
+            Karrie Marie
           </Link>
-          <div className='flex items-center justify-center text-[#211F20] gap-10 text-xl'>
+          <div className='flex items-center justify-center gap-10'>
             <Link
               href='/'
               className='hover:underline transition-all duration-300 ease-linear underline-offset-8'
@@ -60,7 +44,7 @@ export default async function RootLayout({
             ))}
           </div>
         </header>
-        <main className='py-20'>{children}</main>
+        <main className='py-10'>{children}</main>
       </body>
     </html>
   )
