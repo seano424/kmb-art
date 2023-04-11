@@ -42,7 +42,7 @@ export async function getArt(slug: string): Promise<Art> {
 
 export async function getHomepageSeries(): Promise<HomepageSeries[]> {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "homepageImages"][0].artSeries[]-> | order(_createdAt desc){
+    groq`*[_type == "homepageSeries"][0].artSeries[]-> | order(_createdAt desc){
       "imageUrl": featureImage.asset->url,
       "alt": featureImage.alt,
       "slug": slug.current,

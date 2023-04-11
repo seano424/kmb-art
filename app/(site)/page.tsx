@@ -4,6 +4,8 @@ import Link from 'next/link'
 
 export default async function Home() {
   const homepageSeries = await getHomepageSeries()
+  console.log(homepageSeries);
+  
 
   return (
     <div className='mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-8 border-8'>
@@ -18,7 +20,7 @@ export default async function Home() {
               src={series.imageUrl}
               alt={series.alt ?? `Feature image for ${series.alt}`}
               width={750}
-              height={300}
+              height={700}
               className='object-cover rounded-lg'
             />
           )}

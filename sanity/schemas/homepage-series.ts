@@ -1,7 +1,7 @@
 import { ImagesIcon } from '@sanity/icons'
 import { Rule } from 'sanity'
 
-const homepageImages = {
+const homepageSeries = {
   name: 'homepageSeries',
   title: 'Homepage Series',
   icon: ImagesIcon,
@@ -27,4 +27,4 @@ const homepageImages = {
   ],
 }
 
-export default homepageImages
+export default homepageSeries
