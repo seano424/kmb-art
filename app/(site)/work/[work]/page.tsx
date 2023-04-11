@@ -3,21 +3,19 @@ import { PortableText } from '@portabletext/react'
 import Image from 'next/image'
 
 type Props = {
-  params: { art: string }
+  params: { work: string }
 }
 
 export default async function Project({ params }: Props) {
-  const slug = params.art
-  const art = await getArt(slug)
-  console.log(art);
-  
+  const slug = params.work
+  const work = await getArt(slug)
 
   return (
     <div>
       <p>hello!</p>
-      <p>{art.title}</p>
-      {art.images &&
-        art.images.map((img) => (
+      <p>{work.title}</p>
+      {work.images &&
+        work.images.map((img) => (
           <Image
             key={img.url}
             src={img.url}

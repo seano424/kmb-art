@@ -21,14 +21,14 @@ export default async function RootLayout({
 
   return (
     <html lang='en'>
-      <body className={clsx('max-w-8xl mx-auto py-20', montserrat.className)}>
-        <header className='flex flex-col gap-10 items-center uppercase'>
-          <Link className='text-4xl font-bold' href='/'>
+      <body className={clsx('max-w-8xl mx-auto py-10', montserrat.className)}>
+        <header className='flex flex-col gap-5 items-center uppercase'>
+          <Link className='text-2xl font-bold' href='/'>
             Karrie Marie
           </Link>
           <div className='flex items-center justify-center gap-10'>
             <Link
-              href='/'
+              href='/work'
               className='hover:underline transition-all duration-300 ease-linear underline-offset-8'
             >
               Work

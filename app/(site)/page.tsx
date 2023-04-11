@@ -10,7 +10,7 @@ export default async function Home() {
     <div className='mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-5 px-5'>
       {homepageSeries.map((series) => (
         <Link
-          href={`/art/${series.slug}`}
+          href={`/work/${series.slug}`}
           key={series.imageUrl}
           className='group relative rounded-lg p-1 h-[650px]'
         >
