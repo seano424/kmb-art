@@ -1,4 +1,6 @@
 import { PresentationIcon } from '@sanity/icons'
+import { Rule } from 'sanity'
+
 
 const art = {
   title: 'Art',
@@ -10,12 +12,14 @@ const art = {
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: (Rule: Rule) => Rule.required(),
     },
     {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
       options: { source: 'title', maxLength: 96 },
+      validation: (Rule: Rule) => Rule.required(),
     },
     {
       name: 'category',
@@ -29,6 +33,7 @@ const art = {
         ],
         layout: 'dropdown',
       },
+      validation: (Rule: Rule) => Rule.required(),
     },
     {
       name: 'featureImage',
@@ -44,6 +49,7 @@ const art = {
           type: 'string',
         },
       ],
+      validation: (Rule: Rule) => Rule.required(),
     },
     {
       name: 'images',

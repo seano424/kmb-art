@@ -2,6 +2,7 @@
 
 import { Art } from '@/types/Art'
 import { useState } from 'react'
+import Image from 'next/image'
 
 const filters = [
   { title: 'All Works', value: '' },
@@ -27,15 +28,20 @@ export const Filter = ({ works }: Props) => {
         ))}
       </div>
 
-      <div className='border-8 grid grid-cols-3 gap-5'>
+      <div className='grid grid-cols-3 gap-5'>
         {works
           .filter((work) => work.category!.includes(filterValue))
           .map((filteredWork) => (
-            <div
-              className='border-8 h-[400px] border-blue-50'
-              key={filteredWork._id}
-            >
-              {filteredWork.category}
+            <div className='relative h-[500px]' key={filteredWork._id}>
+              <Image
+                src={filteredWork.featureImage}
+                alt={
+                  filteredWork.featureImageAlt ??
+                  `Feature Image for ${filteredWork.title}`
+                }
+                className='rounded object-cover'
+                fill
+              />
             </div>
           ))}
       </div>

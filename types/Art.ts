@@ -3,8 +3,8 @@ export type Art = {
   _createdAt: Date
   title: string
   slug: string
-  category?: string
-  featureImage?: string
+  category: string
+  featureImage: string
   featureImageAlt?: string
   images?: {
     alt: string
