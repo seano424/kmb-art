@@ -23,9 +23,9 @@ const art = {
       type: 'string',
       options: {
         list: [
-          { title: 'Ink Works', value: 'ink-works' },
+          { title: 'Alcohol Inks', value: 'alcohol-inks' },
           { title: 'Paintings', value: 'paintings' },
-          { title: 'Charcoals', value: 'charcoals' },
+          { title: 'Charcoals/Pastels', value: 'charcoals' },
         ],
         layout: 'dropdown',
       },
