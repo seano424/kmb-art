@@ -1,7 +1,7 @@
 export type HomepageSeries = {
   _createdAt: string
-  alt: string
-  imageUrl: string
+  featureImageAlt: string
+  featureImage: string
   slug: string
   title: string
 }
