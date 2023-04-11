@@ -20,7 +20,7 @@ const Navigation = ({ pages }: Props) => {
         href='/work'
         className={clsx(
           'hover:underline hover:text-gray-900 transition-all duration-150 ease-linear underline-offset-8',
-          pathname === '/work' ? 'text-gray-900' : 'text-gray-400'
+          pathname.includes('/work') ? 'text-gray-900' : 'text-gray-400'
         )}
       >
         Work
