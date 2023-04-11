@@ -11,18 +11,21 @@ export default async function Work({ params }: Props) {
   const work = await getWork(slug)
 
   return (
-    <div className='flex flex-col items-center justify-center gap-10'>
-      {work.images &&
-        work.images.map((img) => (
-          <Image
-            key={img.url}
-            src={img.url}
-            alt={img.alt}
-            height={1000}
-            width={1000}
-            className='object-contain'
-          />
-        ))}
+    <div>
+      <p className='text-center pb-10'>{work.title}</p>
+      <div className='flex flex-wrap items-center justify-center gap-5'>
+        {work.images &&
+          work.images.map((img) => (
+            <Image
+              key={img.url}
+              src={img.url}
+              alt={img.alt}
+              height={500}
+              width={500}
+              className='object-contain'
+            />
+          ))}
+      </div>
     </div>
   )
 }

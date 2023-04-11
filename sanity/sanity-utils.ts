@@ -43,6 +43,7 @@ export async function getWork(slug: string): Promise<Art> {
       _createdAt,
       _id,
       title,
+      description,
       "category": category.title,
       "slug": slug.current,
       "featureImage": featureImage.asset->url,

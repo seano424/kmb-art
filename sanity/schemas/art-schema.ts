@@ -22,6 +22,12 @@ const art = {
       validation: (Rule: Rule) => Rule.required(),
     },
     {
+      name: 'description',
+      title: 'Description',
+      description: 'Optional',
+      type: 'string',
+    },
+    {
       name: 'category',
       title: 'Category',
       type: 'string',
