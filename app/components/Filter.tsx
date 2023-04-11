@@ -7,10 +7,10 @@ import Image from 'next/image'
 import clsx from 'clsx'
 
 const filters = [
-  { title: 'All Works', value: '' },
   { title: 'Paintings', value: 'paintings' },
   { title: 'Alcohol Inks', value: 'alcohol-inks' },
   { title: 'Charcoals', value: 'charcoals' },
+  { title: 'All Works', value: '' },
 ]
 
 interface Props {

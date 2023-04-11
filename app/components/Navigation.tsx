@@ -15,12 +15,12 @@ const Navigation = ({ pages }: Props) => {
   const pathname = usePathname()
 
   return (
-    <div className='flex items-center justify-center gap-10'>
+    <div className='flex items-center justify-center gap-10 font-light'>
       <Link
         href='/work'
         className={clsx(
-          'hover:underline hover:text-gray-900 transition-all duration-150 ease-linear underline-offset-8',
-          pathname.includes('/work') ? 'text-gray-900' : 'text-gray-400'
+          'hover:underline hover:text-black transition-all duration-150 ease-linear underline-offset-8',
+          pathname.includes('/work') ? 'text-black' : 'text-gray-400'
         )}
       >
         Work
@@ -30,9 +30,9 @@ const Navigation = ({ pages }: Props) => {
           key={page._id}
           href={`/${page.slug}`}
           className={clsx(
-            'hover:underline hover:text-gray-900 transition-all duration-150 ease-linear underline-offset-8',
+            'hover:underline hover:text-black transition-all duration-150 ease-linear underline-offset-8',
             pathname === `/${page.title.toLowerCase()}`
-              ? 'text-gray-900'
+              ? 'text-black'
               : 'text-gray-400'
           )}
         >
