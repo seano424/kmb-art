@@ -6,7 +6,7 @@ export default async function Home() {
   const homepageSeries = await getHomepageSeries()
 
   return (
-    <div className='mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
+    <div className='mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-8 border-8'>
       {homepageSeries.map((series) => (
         <Link
           href={`/art/${series.slug}`}
