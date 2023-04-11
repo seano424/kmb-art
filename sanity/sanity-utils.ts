@@ -19,11 +19,12 @@ export async function getProjects(): Promise<Project[]> {
   )
 }
 
-export async function getArtSeries(id: string): Promise<Art> {
+export async function getArt(slug: string): Promise<Art> {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "art" && id == $id]{
+    groq`*[_type == "art" && slug.current == $slug][0]{
       _createdAt,
       _id,
+      title,
       "category": category.title,
       "slug": slug.current,
       "featureImage": featureImage.asset->url,
@@ -33,7 +34,7 @@ export async function getArtSeries(id: string): Promise<Art> {
         "url": image.asset->url
       }
     }`,
-    { id }
+    { slug }
   )
 }
 

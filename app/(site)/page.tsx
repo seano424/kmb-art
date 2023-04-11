@@ -9,7 +9,7 @@ export default async function Home() {
     <div className='mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
       {homepageSeries.map((series) => (
         <Link
-          href={`/work/${series.slug}`}
+          href={`/art/${series.slug}`}
           key={series.imageUrl}
           className='rounded-lg p-1 hover:scale-105 hover:border-blue-500 transition'
         >
