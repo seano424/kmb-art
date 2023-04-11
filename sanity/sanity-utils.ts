@@ -19,7 +19,25 @@ export async function getProjects(): Promise<Project[]> {
   )
 }
 
-export async function getArt(slug: string): Promise<Art> {
+export async function getWorks(): Promise<Art[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "art"]{
+      _createdAt,
+      _id,
+      title,
+      "category": category.title,
+      "slug": slug.current,
+      "featureImage": featureImage.asset->url,
+      "featureImageAlt": featureImage.alt,
+      'images': images[] {
+        alt,
+        "url": image.asset->url
+      }
+    }`
+  )
+}
+
+export async function getWork(slug: string): Promise<Art> {
   return createClient(clientConfig).fetch(
     groq`*[_type == "art" && slug.current == $slug][0]{
       _createdAt,
@@ -37,8 +55,6 @@ export async function getArt(slug: string): Promise<Art> {
     { slug }
   )
 }
-
-// artSeries[]-> | order(_createdAt asc)
 
 export async function getHomepageSeries(): Promise<HomepageSeries[]> {
   return createClient(clientConfig).fetch(

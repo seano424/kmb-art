@@ -1,4 +1,4 @@
-import { getArt } from '@/sanity/sanity-utils'
+import { getWork } from '@/sanity/sanity-utils'
 import { PortableText } from '@portabletext/react'
 import Image from 'next/image'
 
@@ -6,9 +6,9 @@ type Props = {
   params: { work: string }
 }
 
-export default async function Project({ params }: Props) {
+export default async function Work({ params }: Props) {
   const slug = params.work
-  const work = await getArt(slug)
+  const work = await getWork(slug)
 
   return (
     <div>
