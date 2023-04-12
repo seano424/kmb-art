@@ -21,7 +21,7 @@ export async function getProjects(): Promise<Project[]> {
 
 export async function getWorks(): Promise<Art[]> {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "art"]{
+    groq`*[_type == "artWork"]{
       _createdAt,
       _id,
       title,
@@ -39,7 +39,7 @@ export async function getWorks(): Promise<Art[]> {
 
 export async function getWork(slug: string): Promise<Art> {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "art" && slug.current == $slug][0]{
+    groq`*[_type == "artWork" && slug.current == $slug][0]{
       _createdAt,
       _id,
       title,

@@ -1,7 +1,7 @@
 // The schema of the Milestone object-type
 const images = {
   name: 'images',
-  title: 'images',
+  title: 'Images',
   type: 'object',
   fields: [
     {

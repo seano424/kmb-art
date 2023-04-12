@@ -19,7 +19,7 @@ const homepageSeries = {
       of: [
         {
           type: 'reference',
-          to: [{ type: 'art' }],
+          to: [{ type: 'art-work' }],
           weak: true
         },
       ],
