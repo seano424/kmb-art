@@ -20,6 +20,7 @@ const homepageSeries = {
         {
           type: 'reference',
           to: [{ type: 'art' }],
+          weak: true
         },
       ],
       validation: (Rule: Rule) => Rule.max(3),
