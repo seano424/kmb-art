@@ -25,6 +25,7 @@ export const Filter = ({ works }: Props) => {
       <div className='flex justify-end gap-10'>
         {filters.map((filter) => (
           <button
+            key={filter.title}
             className={clsx(
               filterValue === filter.value ? 'underline' : 'no-underline',
               'underline-offset-8'
