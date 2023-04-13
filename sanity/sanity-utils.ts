@@ -57,14 +57,21 @@ export async function getWork(slug: string): Promise<Art> {
   )
 }
 
-export async function getHomepageSeries(): Promise<HomepageSeries[]> {
+export async function getHomepageSeries(): Promise<Art[]> {
   return createClient(clientConfig).fetch(
     groq`*[_type == "homepageSeries"][0].artSeries[]-> | order(_createdAt desc){
+      _createdAt,
+      _id,
+      title,
+      description,
+      "category": category.title,
+      "slug": slug.current,
       "featureImage": featureImage.asset->url,
       "featureImageAlt": featureImage.alt,
-      "slug": slug.current,
-      title,
-      _createdAt
+      'images': images[] {
+        alt,
+        "url": image.asset->url
+      }
     }`
   )
 }

@@ -5,6 +5,7 @@ import { Art } from '@/types/Art'
 import Link from 'next/link'
 import Image from 'next/image'
 import clsx from 'clsx'
+import WorkCard from './WorkCard'
 
 const filters = [
   { title: 'Paintings', value: 'paintings' },
@@ -43,26 +44,7 @@ export const Filter = ({ works }: Props) => {
         {works
           .filter((work) => work.category!.includes(filterValue))
           .map((filteredWork) => (
-            <Link
-              href={`/work/${filteredWork.slug}`}
-              className='relative h-[600px] group'
-              key={filteredWork._id}
-            >
-              <Image
-                src={filteredWork.featureImage}
-                alt={
-                  filteredWork.featureImageAlt ??
-                  `Feature Image for ${filteredWork.title}`
-                }
-                className='object-cover rounded'
-                fill
-              />
-              <div className='group-hover:bg-opacity-10 group-hover:opacity-100 opacity-0 absolute inset-0 flex justify-center items-center bg-opacity-0 bg-white transition-all duration-100 ease-linear p-10'>
-                <p className='uppercase text-3xl text-white'>
-                  {filteredWork.title}
-                </p>
-              </div>
-            </Link>
+            <WorkCard work={filteredWork} size='small' />
           ))}
       </div>
     </div>
