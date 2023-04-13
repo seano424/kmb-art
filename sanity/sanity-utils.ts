@@ -21,7 +21,7 @@ export async function getProjects(): Promise<Project[]> {
 
 export async function getWorks(): Promise<Art[]> {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "art-work"]{
+    groq`*[_type == "art-work"] | order(_updatedAt desc) {
       _createdAt,
       _id,
       title,
