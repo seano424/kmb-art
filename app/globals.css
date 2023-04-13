@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.yarl__slide {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3rem !important;
+  color: white !important;
+}

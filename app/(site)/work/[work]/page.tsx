@@ -1,6 +1,7 @@
 import { getWork, getWorks } from '@/sanity/sanity-utils'
 import Image from 'next/image'
 import Link from 'next/link'
+import MyLightbox from '@/app/components/MyLightbox'
 
 type Props = {
   params: { work: string }
@@ -21,25 +22,7 @@ export default async function Work({ params }: Props) {
           {work.description}
         </h3>
       )}
-      <div className='grid'>
-        {work.images &&
-          work.images.map((img) => (
-            <div className='h-[800px] flex flex-col items-center justify-center'>
-              <div className='relative h-[500px] w-full'>
-                <Image
-                  key={img.url}
-                  src={img.url}
-                  alt={img.alt}
-                  fill
-                  className='object-contain'
-                />
-              </div>
-              {img.alt && (
-                <p className='text-zinc-500 text-sm mt-5'>{img.alt}</p>
-              )}
-            </div>
-          ))}
-      </div>
+      {work.images && <MyLightbox work={work} />}
 
       <div className='py-10 container'>
         <h3 className='tracking-widest'>Related Works</h3>
