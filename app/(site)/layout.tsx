@@ -22,7 +22,7 @@ export default async function RootLayout({
   return (
     <html lang='en'>
       <body className={clsx('max-w-8xl mx-auto py-20', montserrat.className)}>
-        <header className='fixed left-0 right-0 top-0 h-40 flex items-center'>
+        <header className='fixed left-0 right-0 top-0 h-32 flex items-center bg-white z-20'>
           <div className='container flex justify-between gap-2 items-center uppercase'>
             <Link className='text-3xl font-bold tracking-widest' href='/'>
               Karrie Marie
@@ -30,7 +30,7 @@ export default async function RootLayout({
             <Navigation pages={pages} />
           </div>
         </header>
-        <main className='py-10 relative top-20'>{children}</main>
+        <main className='relative top-20'>{children}</main>
       </body>
     </html>
   )
