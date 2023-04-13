@@ -2,8 +2,6 @@
 
 import { useState } from 'react'
 import { Art } from '@/types/Art'
-import Link from 'next/link'
-import Image from 'next/image'
 import clsx from 'clsx'
 import WorkCard from './WorkCard'
 
