@@ -37,13 +37,13 @@ export const Filter = ({ works }: Props) => {
         ))}
       </div>
 
-      <div className='grid grid-cols-3 gap-5'>
+      <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
         {works
           .filter((work) => work.category!.includes(filterValue))
           .map((filteredWork) => (
             <Link
               href={`/work/${filteredWork.slug}`}
-              className='relative h-[500px] group'
+              className='relative h-[600px] group'
               key={filteredWork._id}
             >
               <Image
@@ -52,10 +52,10 @@ export const Filter = ({ works }: Props) => {
                   filteredWork.featureImageAlt ??
                   `Feature Image for ${filteredWork.title}`
                 }
-                className='rounded object-cover'
+                className='object-cover rounded'
                 fill
               />
-              <div className='group-hover:bg-opacity-40 group-hover:opacity-100 opacity-0 absolute inset-0 flex justify-center items-center bg-opacity-0 bg-black transition-all duration-100 ease-linear'>
+              <div className='group-hover:bg-opacity-10 group-hover:opacity-100 opacity-0 absolute inset-0 flex justify-center items-center bg-opacity-0 bg-white transition-all duration-100 ease-linear p-10'>
                 <p className='uppercase text-3xl text-white'>
                   {filteredWork.title}
                 </p>
