@@ -17,25 +17,25 @@ export default async function Work({ params }: Props) {
       {work.description && (
         <p className='text-center pb-10'>{work.description}</p>
       )}
-      <div className='flex flex-col h-full w-full items-center gap-80'>
+      <div className='grid'>
         {work.images &&
           work.images.map((img) => (
-            <Image
-              key={img.url}
-              src={img.url}
-              alt={img.alt}
-              height={500}
-              width={500}
-
-              // style={{ height: '100%', width: '100%' }}
-              sizes='100vw'
-              className='object-contain'
-            />
+            <div className='h-[800px] flex items-center justify-center'>
+              <div className='relative h-[500px] w-full'>
+                <Image
+                  key={img.url}
+                  src={img.url}
+                  alt={img.alt}
+                  fill
+                  className='object-contain'
+                />
+              </div>
+            </div>
           ))}
       </div>
 
-      <div className='py-10'>
-        <p>Related Works</p>
+      <div className='py-10 container'>
+        <h3 className='tracking-widest'>Related Works</h3>
         <div className='grid grid-cols-3 gap-10 pt-5'>
           {works
             .filter((w) => w.title !== work.title)
@@ -54,7 +54,7 @@ export default async function Work({ params }: Props) {
                   className='rounded object-cover'
                   fill
                 />
-                <div className='group-hover:bg-opacity-40 group-hover:opacity-100 opacity-0 absolute inset-0 flex justify-center items-center bg-opacity-0 bg-black transition-all duration-100 ease-linear'>
+                <div className='group-hover:bg-opacity-10 group-hover:opacity-100 opacity-0 absolute inset-0 flex justify-center items-center bg-opacity-0 bg-white transition-all duration-100 ease-linear p-10'>
                   <p className='uppercase text-3xl text-white'>
                     {filteredWork.title}
                   </p>
