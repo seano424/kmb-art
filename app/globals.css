@@ -2,9 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+.yarl__carousel {
+  background-color: white !important;
+}
+
 .yarl__slide {
   display: flex !important;
   flex-direction: column !important;
   gap: 3rem !important;
   color: white !important;
+}
+
+.yarl__button {
+  color: black;
 }
