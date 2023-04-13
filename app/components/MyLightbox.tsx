@@ -39,7 +39,10 @@ const MyLightbox = ({ work }: Props) => {
       <div className='grid'>
         {work.images &&
           work.images.map((img, idx) => (
-            <div className='h-[800px] flex flex-col items-center justify-center'>
+            <div
+              key={img.url}
+              className='h-[800px] flex flex-col items-center justify-center'
+            >
               <div className='relative h-[500px] w-full'>
                 <Image
                   key={img.url}

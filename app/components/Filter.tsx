@@ -43,7 +43,7 @@ export const Filter = ({ works }: Props) => {
         {works
           .filter((work) => work.category!.includes(filterValue))
           .map((filteredWork) => (
-            <WorkCard work={filteredWork} size='small' />
+            <WorkCard key={filteredWork._id} work={filteredWork} size='small' />
           ))}
       </div>
     </div>
