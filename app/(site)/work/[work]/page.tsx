@@ -1,5 +1,4 @@
 import { getWork, getWorks } from '@/sanity/sanity-utils'
-import { PortableText } from '@portabletext/react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -36,9 +35,7 @@ export default async function Work({ params }: Props) {
                 />
               </div>
               {img.alt && (
-                <p className='text-zinc-500 text-sm mt-5'>
-                  {img.alt}
-                </p>
+                <p className='text-zinc-500 text-sm mt-5'>{img.alt}</p>
               )}
             </div>
           ))}
