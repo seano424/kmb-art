@@ -21,11 +21,11 @@ export default async function Home() {
                   series.featureImageAlt ??
                   `Feature image for ${series.featureImageAlt}`
                 }
-                className='object-cover rounded-lg transition'
+                className='object-cover rounded transition'
                 fill
               />
             )}
-            <div className='group-hover:bg-opacity-40 group-hover:opacity-100 opacity-0 absolute inset-0 flex justify-center items-center bg-opacity-0 bg-black transition-all duration-100 ease-linear'>
+            <div className='group-hover:bg-opacity-10 group-hover:opacity-100 opacity-0 absolute inset-0 flex justify-center items-center bg-opacity-0 bg-white transition-all duration-100 ease-linear p-10'>
               <p className='uppercase text-3xl text-white'>{series.title}</p>
             </div>
           </Link>
