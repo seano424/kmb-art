@@ -15,7 +15,7 @@ const Navigation = ({ pages }: Props) => {
   const pathname = usePathname()
 
   return (
-    <div className='flex items-center justify-center gap-5 font-bold tracking-widest border-b-4 border-zinc-800 pb-2 pl-20'>
+    <div className='flex flex-col md:flex-row items-center justify-center gap-2 md:gap-5 font-bold tracking-widest md:border-b-4 border-zinc-800 md:pb-2 md:pl-20'>
       <Link
         href='/work'
         className={clsx(

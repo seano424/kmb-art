@@ -21,7 +21,7 @@ export const Filter = ({ works }: Props) => {
 
   return (
     <div className='grid gap-10'>
-      <div className='flex justify-end gap-10'>
+      <div className='flex gap-8 justify-center md:justify-end md:gap-10'>
         {filters.map((filter) => (
           <button
             key={filter.title}
@@ -29,7 +29,8 @@ export const Filter = ({ works }: Props) => {
               filterValue === filter.value
                 ? 'underline text-pink-600'
                 : 'no-underline',
-              'underline-offset-8 tracking-widest'
+              'underline-offset-8 tracking-widest',
+              'text-sm md:text-base'
             )}
             onClick={() => setFilterValue(filter.value)}
           >

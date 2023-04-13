@@ -14,5 +14,5 @@
 }
 
 .yarl__button {
-  color: black;
+  color: black !important;
 }
