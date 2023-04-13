@@ -27,7 +27,7 @@ export default async function RootLayout({
           montserrat.className
         )}
       >
-        <header className='fixed left-0 right-0 top-0 h-40 flex items-center bg-white/95 z-20 backdrop-blur-sm'>
+        <header className='fixed left-0 right-0 top-0 h-32 flex items-center z-20 bg-white'>
           <div className='container flex justify-between gap-2 items-center uppercase'>
             <Link className='text-3xl font-bold tracking-widest' href='/'>
               Karrie Marie
