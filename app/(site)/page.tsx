@@ -1,7 +1,7 @@
 import { getHomepageSeries } from '@/sanity/sanity-utils'
 import WorkCard from '../components/WorkCard'
 
-export const revalidate = 60;
+export const revalidate = 10;
 
 export default async function Home() {
   const homepageSeries = await getHomepageSeries()

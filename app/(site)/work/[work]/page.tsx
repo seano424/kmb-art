@@ -7,6 +7,8 @@ type Props = {
   params: { work: string }
 }
 
+export const revalidate = 10
+
 export default async function Work({ params }: Props) {
   const slug = params.work
   const work = await getWork(slug)
