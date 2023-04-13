@@ -22,13 +22,15 @@ export default async function RootLayout({
   return (
     <html lang='en'>
       <body className={clsx('max-w-8xl mx-auto py-20', montserrat.className)}>
-        <header className='flex flex-col gap-2 items-center uppercase'>
-          <Link className='text-2xl font-bold tracking-widest' href='/'>
-            Karrie Marie
-          </Link>
-          <Navigation pages={pages} />
+        <header className='fixed left-0 right-0 top-0 h-40 flex items-center'>
+          <div className='container flex justify-between gap-2 items-center uppercase'>
+            <Link className='text-3xl font-bold tracking-widest' href='/'>
+              Karrie Marie
+            </Link>
+            <Navigation pages={pages} />
+          </div>
         </header>
-        <main className='py-10'>{children}</main>
+        <main className='py-10 relative top-20'>{children}</main>
       </body>
     </html>
   )

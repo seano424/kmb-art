@@ -22,22 +22,26 @@ export const Filter = ({ works }: Props) => {
 
   return (
     <div className='grid gap-10'>
-      <div className='flex justify-end gap-10'>
-        {filters.map((filter) => (
-          <button
-            key={filter.title}
-            className={clsx(
-              filterValue === filter.value ? 'underline' : 'no-underline',
-              'underline-offset-8'
-            )}
-            onClick={() => setFilterValue(filter.value)}
-          >
-            {filter.title}
-          </button>
-        ))}
+      <div className='fixed left-0 right-0 top-44 container'>
+        <div className='flex justify-end gap-10'>
+          {filters.map((filter) => (
+            <button
+              key={filter.title}
+              className={clsx(
+                filterValue === filter.value
+                  ? 'underline text-pink-600'
+                  : 'no-underline',
+                'underline-offset-8 tracking-widest'
+              )}
+              onClick={() => setFilterValue(filter.value)}
+            >
+              {filter.title}
+            </button>
+          ))}
+        </div>
       </div>
 
-      <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
+      <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 mt-20'>
         {works
           .filter((work) => work.category!.includes(filterValue))
           .map((filteredWork) => (
