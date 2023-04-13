@@ -20,8 +20,8 @@ const Navigation = ({ pages }: Props) => {
         href='/work'
         className={clsx(
           'hover:text-pink-600 hover:bg-pink-50 transition-all duration-150 ease-linear underline-offset-8 px-5',
-          pathname.includes('/work')
-            ? 'text-pink-600 bg-pink-50'
+          pathname === '/work'
+            ? 'text-pink-600 bg-pink-50 hover:bg-pink-100'
             : 'text-zinc-800'
         )}
       >
@@ -34,7 +34,7 @@ const Navigation = ({ pages }: Props) => {
           className={clsx(
             'hover:text-pink-600 hover:bg-pink-50 transition-all duration-150 ease-linear underline-offset-8 px-5',
             pathname === `/${page.slug.toLowerCase()}`
-              ? 'text-pink-600 bg-pink-50'
+              ? 'text-pink-600 bg-pink-50 hover:bg-pink-100'
               : 'text-zinc-800'
           )}
         >

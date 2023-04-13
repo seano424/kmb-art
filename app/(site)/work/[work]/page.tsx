@@ -14,13 +14,18 @@ export default async function Work({ params }: Props) {
 
   return (
     <div>
+      {work.title && (
+        <h3 className='container text-right tracking-widest'>{work.title}</h3>
+      )}
       {work.description && (
-        <p className='text-center pb-10'>{work.description}</p>
+        <h3 className='container text-right tracking-widest'>
+          {work.description}
+        </h3>
       )}
       <div className='grid'>
         {work.images &&
           work.images.map((img) => (
-            <div className='h-[800px] flex items-center justify-center'>
+            <div className='h-[800px] flex flex-col items-center justify-center'>
               <div className='relative h-[500px] w-full'>
                 <Image
                   key={img.url}
@@ -30,6 +35,11 @@ export default async function Work({ params }: Props) {
                   className='object-contain'
                 />
               </div>
+              {img.alt && (
+                <p className='text-zinc-500 text-sm mt-5'>
+                  {img.alt}
+                </p>
+              )}
             </div>
           ))}
       </div>
