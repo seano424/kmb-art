@@ -24,7 +24,7 @@ export default async function Work({ params }: Props) {
           {work.description}
         </h3>
       )}
-      {work.images && <MyLightbox work={work} />}
+      {work.images && <MyLightbox images={work.images} />}
 
       <div className='py-10 container'>
         <h3 className='tracking-widest'>Related Works</h3>
