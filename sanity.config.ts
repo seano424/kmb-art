@@ -1,4 +1,5 @@
 import { defineConfig, buildLegacyTheme } from 'sanity'
+import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 import { deskTool } from 'sanity/desk'
 import schemas from './sanity/schemas'
 import { ImagesIcon } from '@sanity/icons'
@@ -72,6 +73,7 @@ const config = defineConfig({
             ),
           ]),
     }),
+    unsplashImageAsset(),
   ],
   schema: { types: schemas },
 })
