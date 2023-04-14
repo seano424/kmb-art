@@ -39,24 +39,24 @@ const MyLightbox = ({ images }: Props) => {
         }))}
       />
 
-      <div className='grid'>
+      <div className='flex flex-col items-center gap-48'>
         {images.map((img, idx) => (
-          <div
+          <button
+            onClick={() => handleLightbox(idx)}
             key={img.url}
-            className='h-[800px] flex flex-col items-center justify-center'
+            className='grid gap-5'
           >
-            <div className='relative h-[500px] w-full'>
-              <Image
-                key={img.url}
-                src={img.url}
-                alt={img.alt}
-                fill
-                className='object-contain cursor-pointer'
-                onClick={() => handleLightbox(idx)}
-              />
-            </div>
+            <Image
+              key={img.url}
+              src={img.url}
+              alt={img.alt}
+              width={425}
+              height={425}
+              className='shadow'
+            />
+
             {img.alt && <p className='text-zinc-500 text-sm mt-5'>{img.alt}</p>}
-          </div>
+          </button>
         ))}
       </div>
     </>
