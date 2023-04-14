@@ -1,6 +1,6 @@
 'use client'
 
-import { Art } from '@/types/Art'
+import clsx from 'clsx'
 import React from 'react'
 import Image from 'next/image'
 import Lightbox from 'yet-another-react-lightbox'
@@ -13,9 +13,10 @@ interface Props {
     alt: string
     url: string
   }[]
+  grid?: boolean
 }
 
-const MyLightbox = ({ images }: Props) => {
+const MyLightbox = ({ images, grid = false }: Props) => {
   const [open, setOpen] = React.useState(false)
   const [idx, setIdx] = React.useState(0)
 
@@ -39,24 +40,33 @@ const MyLightbox = ({ images }: Props) => {
         }))}
       />
 
-      <div className='flex flex-col items-center gap-48'>
+      <div
+        className={clsx(
+          grid ? 'grid grid-cols-2 gap-10' : 'flex flex-col items-center gap-48'
+        )}
+      >
         {images.map((img, idx) => (
-          <button
-            onClick={() => handleLightbox(idx)}
-            key={img.url}
-            className='grid gap-5'
-          >
-            <Image
+          <div>
+            <button
+              onClick={() => handleLightbox(idx)}
               key={img.url}
-              src={img.url}
-              alt={img.alt}
-              width={425}
-              height={425}
-              className='shadow'
-            />
-
+              className={clsx(grid && 'h-[400px]', 'grid gap-5')}
+            >
+              <Image
+                key={img.url}
+                src={img.url}
+                alt={img.alt}
+                width={425}
+                height={425}
+                className={clsx(
+                  grid
+                    ? 'object-cover border-8 border-gray-100/80 h-full w-full'
+                    : 'shadow'
+                )}
+              />
+            </button>
             {img.alt && <p className='text-zinc-500 text-sm mt-5'>{img.alt}</p>}
-          </button>
+          </div>
         ))}
       </div>
     </>

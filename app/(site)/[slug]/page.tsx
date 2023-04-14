@@ -1,15 +1,17 @@
 import { getPage } from '@/sanity/sanity-utils'
 import { PortableText } from '@portabletext/react'
 import Image from 'next/image'
+import MyLightbox from '@/app/components/MyLightbox'
 
 type Props = {
   params: { slug: string }
 }
 
-export const revalidate = 10;
+export const revalidate = 10
 
 export default async function Page({ params }: Props) {
   const page = await getPage(params.slug)
+  console.log(page)
 
   return (
     <div className='flex flex-col items-center gap-10 container py-5 max-w-2xl'>
@@ -28,6 +30,7 @@ export default async function Page({ params }: Props) {
           <PortableText value={page.content} />
         </div>
       )}
+      {page?.images && <MyLightbox grid images={page.images} />}
     </div>
   )
 }

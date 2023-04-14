@@ -25,7 +25,7 @@ export default async function Work({ params }: Props) {
         </h3>
       )}
 
-      <div className='pt-10'>
+      <div className='pt-20 lg:pt-12'>
         {work.images && <MyLightbox images={work.images} />}
       </div>
 
