@@ -42,7 +42,9 @@ const MyLightbox = ({ images, grid = false }: Props) => {
 
       <div
         className={clsx(
-          grid ? 'grid grid-cols-2 gap-10' : 'flex flex-col items-center gap-48'
+          grid
+            ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'
+            : 'flex flex-col items-center gap-48'
         )}
       >
         {images.map((img, idx) => (
@@ -50,14 +52,19 @@ const MyLightbox = ({ images, grid = false }: Props) => {
             <button
               onClick={() => handleLightbox(idx)}
               key={img.url}
-              className={clsx(grid && 'h-[400px]', 'grid gap-5')}
+              className={clsx(
+                grid &&
+                  'relative w-[350px] h-[350px] lg:w-[400px] lg:h-[400px]',
+                'grid gap-5'
+              )}
             >
               <Image
                 key={img.url}
                 src={img.url}
                 alt={img.alt}
-                width={425}
-                height={425}
+                fill={grid ? true : false}
+                width={grid ? undefined : 425}
+                height={grid ? undefined : 425}
                 className={clsx(
                   grid
                     ? 'object-cover border-8 border-gray-100/80 h-full w-full'

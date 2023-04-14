@@ -14,23 +14,27 @@ export default async function Page({ params }: Props) {
   console.log(page)
 
   return (
-    <div className='flex flex-col items-center gap-10 container py-5 max-w-2xl'>
-      {page?.image && (
-        <div className='relative h-[300px] w-[300px]'>
-          <Image
-            src={page.image}
-            alt={page.alt!}
-            className='object-cover rounded-full'
-            fill
-          />
-        </div>
-      )}
-      {page?.content && (
-        <div className='text-lg text-center text-gray-700 prose'>
-          <PortableText value={page.content} />
-        </div>
-      )}
-      {page?.images && <MyLightbox grid images={page.images} />}
+    <div className='flex flex-col items-center gap-10 container py-5'>
+      <div className='flex flex-col items-center gap-10 max-w-2xl'>
+        {page?.image && (
+          <div className='relative h-[300px] w-[300px]'>
+            <Image
+              src={page.image}
+              alt={page.alt!}
+              className='object-cover rounded-full'
+              fill
+            />
+          </div>
+        )}
+        {page?.content && (
+          <div className='text-lg text-center text-gray-700 prose'>
+            <PortableText value={page.content} />
+          </div>
+        )}
+      </div>
+      <div className='max-w-7xl'>
+        {page?.images && <MyLightbox grid images={page.images} />}
+      </div>
     </div>
   )
 }
