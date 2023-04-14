@@ -37,6 +37,12 @@ const page = {
       type: 'array',
       of: [{ type: 'block' }],
     },
+    {
+      name: 'images',
+      title: 'Images',
+      type: 'array',
+      of: [{ type: 'images' }],
+    },
   ],
 }
 

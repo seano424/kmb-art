@@ -83,7 +83,11 @@ export async function getPage(slug: string): Promise<Page> {
       "slug": slug.current,
       "image": image.asset->url,
       "alt": image.alt,
-      content
+      content,
+      'images': images[] {
+        alt,
+        "url": image.asset->url
+      }
     }`,
     { slug, cache: 'no-store' }
   )
