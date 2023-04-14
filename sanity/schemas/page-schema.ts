@@ -39,6 +39,7 @@ const page = {
     },
     {
       name: 'images',
+      description: 'Optional',
       title: 'Images',
       type: 'array',
       of: [{ type: 'images' }],
