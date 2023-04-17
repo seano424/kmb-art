@@ -17,7 +17,7 @@ export default function Head() {
         property='og:site_name'
         content='Karrie Marie Baxley | Artist and Writer'
       />
-      <link rel='icon' href='/images/favicon.ico' />
+      <link rel='icon' href='./favicon.ico' />
     </>
   )
 }
