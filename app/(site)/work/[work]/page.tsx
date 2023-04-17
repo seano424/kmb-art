@@ -31,7 +31,7 @@ export default async function Work({ params }: Props) {
 
       <div className='py-10 container'>
         <h3 className='tracking-widest'>Related Works</h3>
-        <div className='grid grid-cols-3 gap-10 pt-5'>
+        <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-10 pt-5'>
           {works
             .filter((w) => w.title !== work.title)
             .map((filteredWork) => (
@@ -49,7 +49,7 @@ export default async function Work({ params }: Props) {
                   className='rounded object-cover'
                   fill
                 />
-                <div className='group-hover:bg-opacity-10 group-hover:opacity-100 opacity-0 absolute inset-0 flex justify-center items-center bg-opacity-0 bg-white transition-all duration-100 ease-linear p-10'>
+                <div className='group-hover:bg-opacity-10 group-hover:opacity-100 group-focus:bg-opacity-10 group-focus:opacity-100 opacity-0 absolute inset-0 flex justify-center items-center bg-opacity-0 bg-white transition-all duration-100 ease-linear p-10'>
                   <p className='uppercase text-3xl text-white'>
                     {filteredWork.title}
                   </p>
