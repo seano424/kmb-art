@@ -8,7 +8,7 @@ import ImageCard from './ImageCard'
 const filters = [
   { title: 'Paintings', value: 'paintings' },
   { title: 'Alcohol Inks', value: 'alcohol-inks' },
-  { title: 'Charcoals', value: 'charcoals' },
+  { title: 'Charcoals/Pastels', value: 'charcoals' },
   { title: 'All Works', value: '' },
 ]
 
@@ -21,7 +21,7 @@ export const Filter = ({ works }: Props) => {
 
   return (
     <div className='grid gap-10'>
-      <div className='flex gap-5 justify-center md:justify-end md:gap-10'>
+      <div className='flex gap-3 justify-center md:justify-end md:gap-10'>
         {filters.map((filter) => (
           <button
             key={filter.title}
