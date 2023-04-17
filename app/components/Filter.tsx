@@ -30,7 +30,8 @@ export const Filter = ({ works }: Props) => {
                 ? 'underline text-pink-600'
                 : 'no-underline',
               'underline-offset-8 sm:tracking-widest',
-              'text-xs sm:text-sm md:text-base'
+              'text-xs sm:text-sm md:text-base',
+              'hover:underline focus:underline'
             )}
             onClick={() => setFilterValue(filter.value)}
           >
