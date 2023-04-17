@@ -30,7 +30,7 @@ const WorkCard = ({ work, size = 'large' }: Props) => {
           fill
         />
       )}
-      <div className='group-hover:bg-opacity-10 group-hover:opacity-100 opacity-0 absolute inset-0 flex justify-center items-center bg-opacity-0 bg-white transition-all duration-100 ease-linear p-10'>
+      <div className='group-hover:bg-opacity-10 group-hover:opacity-100 group-focus:bg-opacity-10 group-focus:opacity-100 opacity-0 absolute inset-0 flex justify-center items-center bg-opacity-0 bg-white transition-all duration-100 ease-linear p-10'>
         <p className='uppercase text-3xl text-white'>{work.title}</p>
       </div>
     </Link>
