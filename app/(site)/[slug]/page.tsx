@@ -11,7 +11,6 @@ export const revalidate = 10
 
 export default async function Page({ params }: Props) {
   const page = await getPage(params.slug)
-  console.log(page)
 
   return (
     <div className='flex flex-col items-center gap-10 container py-5'>
