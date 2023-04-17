@@ -8,7 +8,7 @@ interface Props {
   size?: 'small' | 'large'
 }
 
-const WorkCard = ({ work, size = 'large' }: Props) => {
+const ImageCard = ({ work, size = 'large' }: Props) => {
   const isLarge = size === 'large'
 
   return (
@@ -37,4 +37,4 @@ const WorkCard = ({ work, size = 'large' }: Props) => {
   )
 }
 
-export default WorkCard
+export default ImageCard

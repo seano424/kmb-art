@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Art } from '@/types/Art'
 import clsx from 'clsx'
-import WorkCard from './WorkCard'
+import ImageCard from './ImageCard'
 
 const filters = [
   { title: 'Paintings', value: 'paintings' },
@@ -43,7 +43,11 @@ export const Filter = ({ works }: Props) => {
         {works
           .filter((work) => work.category!.includes(filterValue))
           .map((filteredWork) => (
-            <WorkCard key={filteredWork._id} work={filteredWork} size='small' />
+            <ImageCard
+              key={filteredWork._id}
+              work={filteredWork}
+              size='small'
+            />
           ))}
       </div>
     </div>
