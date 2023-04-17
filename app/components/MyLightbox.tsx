@@ -48,10 +48,9 @@ const MyLightbox = ({ images, grid = false }: Props) => {
         )}
       >
         {images.map((img, idx) => (
-          <div>
+          <div key={img.url}>
             <button
               onClick={() => handleLightbox(idx)}
-              key={img.url}
               className={clsx(
                 grid &&
                   'relative w-[350px] h-[350px] lg:w-[400px] lg:h-[400px]',
