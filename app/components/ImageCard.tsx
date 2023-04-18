@@ -6,9 +6,10 @@ import clsx from 'clsx'
 interface Props {
   work: Art
   size?: 'small' | 'large'
+  priority?: boolean
 }
 
-const ImageCard = ({ work, size = 'large' }: Props) => {
+const ImageCard = ({ work, size = 'large', priority = false }: Props) => {
   const isLarge = size === 'large'
 
   return (
@@ -27,6 +28,7 @@ const ImageCard = ({ work, size = 'large' }: Props) => {
             work.featureImageAlt ?? `Feature image for ${work.featureImageAlt}`
           }
           className='object-cover rounded transition'
+          priority={priority}
           fill
         />
       )}
@@ -37,7 +39,9 @@ const ImageCard = ({ work, size = 'large' }: Props) => {
           'bg-white transition-all duration-100 ease-linear p-10'
         )}
       >
-        <p className='uppercase text-3xl text-white text-center'>{work.title}</p>
+        <p className='uppercase text-3xl text-white text-center'>
+          {work.title}
+        </p>
       </div>
     </Link>
   )

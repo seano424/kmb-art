@@ -19,7 +19,9 @@ const ImageGrid = ({ images, filterValue }: Props) => {
                 size='small'
               />
             ))
-        : images.map((images) => <ImageCard key={images.slug} work={images} />)}
+        : images.map((images) => (
+            <ImageCard key={images.slug} work={images} priority />
+          ))}
     </div>
   )
 }
