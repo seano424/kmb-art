@@ -13,11 +13,7 @@ const ImageGrid = ({ images, filterValue }: Props) => {
         ? images
             .filter((image) => image.category!.includes(filterValue))
             .map((filteredWork) => (
-              <ImageCard
-                key={filteredWork._id}
-                work={filteredWork}
-                size='small'
-              />
+              <ImageCard key={filteredWork._id} work={filteredWork} />
             ))
         : images.map((images) => (
             <ImageCard key={images.slug} work={images} priority />

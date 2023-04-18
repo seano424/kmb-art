@@ -5,20 +5,17 @@ import clsx from 'clsx'
 
 interface Props {
   work: Art
-  size?: 'small' | 'large'
   priority?: boolean
 }
 
-const ImageCard = ({ work, size = 'large', priority = false }: Props) => {
-  const isLarge = size === 'large'
-
+const ImageCard = ({ work, priority = false }: Props) => {
   return (
     <Link
       href={`/work/${work.slug}`}
       key={work.featureImage}
       className={clsx(
         'group relative rounded-lg p-1',
-        isLarge ? 'h-[650px]' : 'h-[550px]'
+        'h-[350px] lg:h-[650px]'
       )}
     >
       {work.featureImage && (
@@ -30,6 +27,9 @@ const ImageCard = ({ work, size = 'large', priority = false }: Props) => {
           className='object-cover rounded transition'
           priority={priority}
           fill
+          sizes='(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw'
         />
       )}
       <div

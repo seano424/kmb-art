@@ -13,10 +13,10 @@ const filters = [
 ]
 
 interface Props {
-  works: Art[]
+  images: Art[]
 }
 
-export const Filter = ({ works }: Props) => {
+export const Filter = ({ images }: Props) => {
   const [filterValue, setFilterValue] = useState('')
 
   return (
@@ -39,7 +39,7 @@ export const Filter = ({ works }: Props) => {
           </button>
         ))}
       </div>
-      <ImageGrid images={works} filterValue={filterValue} />
+      <ImageGrid images={images} filterValue={filterValue} />
     </div>
   )
 }

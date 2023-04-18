@@ -4,7 +4,7 @@ import { getWorks } from '@/sanity/sanity-utils'
 export const revalidate = 10
 
 export default async function Works() {
-  const works = await getWorks()
+  const images = await getWorks()
 
-  return <Filter works={works} />
+  return <Filter images={images} />
 }
