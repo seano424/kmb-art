@@ -37,7 +37,7 @@ const ImageCard = ({ work, size = 'large' }: Props) => {
           'bg-white transition-all duration-100 ease-linear p-10'
         )}
       >
-        <p className='uppercase text-3xl text-white'>{work.title}</p>
+        <p className='uppercase text-3xl text-white text-center'>{work.title}</p>
       </div>
     </Link>
   )
