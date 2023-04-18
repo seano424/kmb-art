@@ -35,7 +35,7 @@ export default async function RootLayout({
             <Nav pages={pages} />
           </div>
         </header>
-        <main className='relative top-16 pb-20'>{children}</main>
+        <main className='relative top-16 pb-20 px-10'>{children}</main>
       </body>
     </html>
   )
