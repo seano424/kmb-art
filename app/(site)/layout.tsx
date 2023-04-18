@@ -1,9 +1,9 @@
 import '../globals.css'
-import Link from 'next/link'
-import { getPages } from '@/sanity/sanity-utils'
-import { Montserrat } from 'next/font/google'
 import clsx from 'clsx'
-import Navigation from '../components/Navigation'
+import Link from 'next/link'
+import Nav from '../components/Nav'
+import { Montserrat } from 'next/font/google'
+import { getPages } from '@/sanity/sanity-utils'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
@@ -32,7 +32,7 @@ export default async function RootLayout({
             <Link className='text-3xl font-bold tracking-widest' href='/'>
               Karrie Marie
             </Link>
-            <Navigation pages={pages} />
+            <Nav pages={pages} />
           </div>
         </header>
         <main className='relative top-24 pb-20'>{children}</main>
