@@ -15,13 +15,13 @@ const ImageCard = ({ work, priority = false }: Props) => {
       href={`/work/${work.slug}`}
       className={clsx(
         'group relative rounded-lg p-1',
-        'h-[350px] md:h-[500px] lg:h-[700px]'
+        'h-[350px] md:h-[500px] lg:h-[800px]'
       )}
     >
       {work.featureImage && (
         <Image
           fill
-          src={urlFor(work.featureImage).height(700).url()}
+          src={urlFor(work.featureImage).height(800).url()}
           alt={
             work.featureImage.alt ??
             `Feature image for ${work.featureImage.alt}`

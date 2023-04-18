@@ -8,7 +8,7 @@ interface Props {
 
 const ImageGrid = ({ images, filterValue }: Props) => {
   return (
-    <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5'>
+    <div className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-5'>
       {filterValue
         ? images
             .filter((image) => image.category!.includes(filterValue))
