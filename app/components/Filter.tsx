@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Art } from '@/types/Art'
 import clsx from 'clsx'
-import ImageCard from './ImageCard'
+import ImageGrid from './ImageGrid'
 
 const filters = [
   { title: 'Paintings', value: 'paintings' },
@@ -39,18 +39,7 @@ export const Filter = ({ works }: Props) => {
           </button>
         ))}
       </div>
-
-      <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
-        {works
-          .filter((work) => work.category!.includes(filterValue))
-          .map((filteredWork) => (
-            <ImageCard
-              key={filteredWork._id}
-              work={filteredWork}
-              size='small'
-            />
-          ))}
-      </div>
+      <ImageGrid images={works} filterValue={filterValue} />
     </div>
   )
 }
