@@ -4,6 +4,12 @@ import { Page } from '@/types/Page'
 import { Art } from '@/types/Art'
 import imageUrlBuilder from '@sanity/image-url'
 
+const builder = imageUrlBuilder(client)
+
+export function urlFor(source: any) {
+  return builder.image(source)
+}
+
 export async function getWorks(): Promise<Art[]> {
   return client.fetch(
     groq`*[_type == "art-work"] | order(_updatedAt desc) {
@@ -12,11 +18,11 @@ export async function getWorks(): Promise<Art[]> {
       title,
       category,
       "slug": slug.current,
-      "featureImage": featureImage.asset->url,
-      "featureImageAlt": featureImage.alt,
+      featureImage,
       'images': images[] {
         alt,
-        "url": image.asset->url
+        "url": image.asset->url,
+        image
       }
     }`,
     { cache: 'no-store' }
@@ -32,11 +38,11 @@ export async function getWork(slug: string): Promise<Art> {
       description,
       "category": category.title,
       "slug": slug.current,
-      "featureImage": featureImage.asset->url,
-      "featureImageAlt": featureImage.alt,
+      featureImage,
       'images': images[] {
         alt,
-        "url": image.asset->url
+        "url": image.asset->url,
+        image
       }
     }`,
     { slug, cache: 'no-store' }
@@ -54,10 +60,7 @@ export async function getHomepageSeries(): Promise<Art[]> {
       "slug": slug.current,
       "featureImage": featureImage.asset->url,
       "featureImageAlt": featureImage.alt,
-      'images': images[] {
-        alt,
-        "url": image.asset->url
-      }
+      images
     }`,
     { cache: 'no-store' }
   )
@@ -82,12 +85,12 @@ export async function getPage(slug: string): Promise<Page> {
       _createdAt,
       title,
       "slug": slug.current,
-      "image": image.asset->url,
-      "alt": image.alt,
+      image,
       content,
       'images': images[] {
         alt,
-        "url": image.asset->url
+        "url": image.asset->url,
+        image
       }
     }`,
     { slug, cache: 'no-store' }

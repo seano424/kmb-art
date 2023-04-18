@@ -5,10 +5,13 @@ export type Art = {
   description?: string
   slug: string
   category: string
-  featureImage: string
-  featureImageAlt?: string
+  featureImage: {
+    url: string
+    alt: string
+  }
   images?: {
     alt: string
     url: string
+    image: {}
   }[]
 }

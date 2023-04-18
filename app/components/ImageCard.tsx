@@ -1,7 +1,8 @@
+import clsx from 'clsx'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Art } from '@/types/Art'
-import clsx from 'clsx'
+import { urlFor } from '@/sanity/sanity-utils'
 
 interface Props {
   work: Art
@@ -12,21 +13,21 @@ const ImageCard = ({ work, priority = false }: Props) => {
   return (
     <Link
       href={`/work/${work.slug}`}
-      key={work.featureImage}
       className={clsx(
         'group relative rounded-lg p-1',
-        'h-[350px] lg:h-[650px]'
+        'h-[350px] lg:h-[700px]'
       )}
     >
       {work.featureImage && (
         <Image
-          src={work.featureImage}
+          fill
+          src={urlFor(work.featureImage).height(700).url()}
           alt={
-            work.featureImageAlt ?? `Feature image for ${work.featureImageAlt}`
+            work.featureImage.alt ??
+            `Feature image for ${work.featureImage.alt}`
           }
           className='object-cover rounded transition'
           priority={priority}
-          fill
           sizes='(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw'

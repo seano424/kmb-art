@@ -5,6 +5,7 @@ import React from 'react'
 import Image from 'next/image'
 import Lightbox from 'yet-another-react-lightbox'
 import Captions from 'yet-another-react-lightbox/plugins/captions'
+import { urlFor } from '@/sanity/sanity-utils'
 
 import 'yet-another-react-lightbox/styles.css'
 
@@ -12,6 +13,7 @@ interface Props {
   images: {
     alt?: string
     url: string
+    image: {}
   }[]
   grid?: boolean
 }
@@ -49,9 +51,9 @@ const MyLightbox = ({ images, grid = false }: Props) => {
         )}
       >
         {images.map((img, i) => (
-          <button onClick={() => handleLightbox(i)} key={img.url}>
+          <button onClick={() => handleLightbox(i)} key={i}>
             <Image
-              src={img.url}
+              src={urlFor(img.image).width(600).url()}
               alt={img.alt ?? 'Artwork image by Karrie Marie Baxley'}
               width={600}
               height={600}

@@ -5,11 +5,13 @@ export type Page = {
   _createdAt: Date
   title: string
   slug: string
-  image?: string
-  alt?: string
+  image?: {
+    alt?: string
+  }
   content: PortableTextBlock[]
   images?: {
     alt: string
     url: string
+    image: {}
   }[]
 }

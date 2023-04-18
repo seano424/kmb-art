@@ -1,4 +1,4 @@
-import { getWork, getWorks } from '@/sanity/sanity-utils'
+import { getWork, getWorks, urlFor } from '@/sanity/sanity-utils'
 import Image from 'next/image'
 import Link from 'next/link'
 import MyLightbox from '@/app/components/MyLightbox'
@@ -41,12 +41,13 @@ export default async function Work({ params }: Props) {
                 key={filteredWork._id}
               >
                 <Image
-                  src={filteredWork.featureImage}
+                  src={urlFor(filteredWork.featureImage).height(500).url()}
                   alt={
-                    filteredWork.featureImageAlt ??
+                    filteredWork.featureImage.alt ??
                     `Feature Image for ${filteredWork.title}`
                   }
                   className='rounded object-cover'
+                  sizes='100vw'
                   fill
                 />
                 <div className='group-hover:bg-opacity-10 group-hover:opacity-100 group-focus:bg-opacity-10 group-focus:opacity-100 opacity-0 absolute inset-0 flex justify-center items-center bg-opacity-0 bg-white transition-all duration-100 ease-linear p-10'>

@@ -1,4 +1,4 @@
-import { getPage } from '@/sanity/sanity-utils'
+import { getPage, urlFor } from '@/sanity/sanity-utils'
 import { PortableText } from '@portabletext/react'
 import Image from 'next/image'
 import MyLightbox from '@/app/components/MyLightbox'
@@ -18,8 +18,8 @@ export default async function Page({ params }: Props) {
         {page?.image && (
           <div className='relative h-[300px] w-[300px]'>
             <Image
-              src={page.image}
-              alt={page.alt!}
+              src={urlFor(page.image).url()}
+              alt={page.image.alt ?? 'featured image'}
               className='object-cover rounded-full'
               fill
             />
