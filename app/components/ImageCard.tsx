@@ -35,7 +35,7 @@ const ImageCard = ({ work, priority = false }: Props) => {
       )}
       <div
         className={clsx(
-          'bg-opacity-10 opacity-100 group-hover:bg-opacity-20 group-focus:bg-opacity-20',
+          'bg-opacity-0 opacity-100 group-hover:bg-opacity-5 group-focus:bg-opacity-5',
           'absolute inset-0 flex justify-center items-center',
           'bg-white transition-all duration-100 ease-linear p-10'
         )}
