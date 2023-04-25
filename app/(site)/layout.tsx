@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import Link from 'next/link'
 import Nav from '../components/Nav'
 import { Montserrat } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
 import { getPages } from '@/sanity/sanity-utils'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
@@ -42,6 +43,7 @@ export default async function RootLayout({
           </div>
         </header>
         <main className='relative top-40 px-10'>{children}</main>
+        <Analytics />
       </body>
     </html>
   )
