@@ -9,6 +9,19 @@ type Props = {
 
 export const revalidate = 10
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}) {
+  const slug = params.slug
+  const page = await getPage(slug)
+
+  return {
+    title: `${page.title} | Karrie Marie`,
+  }
+}
+
 export default async function Page({ params }: Props) {
   const page = await getPage(params.slug)
 

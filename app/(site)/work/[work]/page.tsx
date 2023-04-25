@@ -9,6 +9,19 @@ type Props = {
 
 export const revalidate = 10
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { work: string }
+}) {
+  const slug = params.work
+  const work = await getWork(slug)
+
+  return {
+    title: work.title,
+  }
+}
+
 export default async function Work({ params }: Props) {
   const slug = params.work
   const work = await getWork(slug)
