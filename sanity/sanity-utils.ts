@@ -24,8 +24,7 @@ export async function getWorks(): Promise<Art[]> {
         "url": image.asset->url,
         image
       }
-    }`,
-    { cache: 'no-store' }
+    }`
   )
 }
 
@@ -45,7 +44,7 @@ export async function getWork(slug: string): Promise<Art> {
         image
       }
     }`,
-    { slug, cache: 'no-store' }
+    { slug }
   )
 }
 
@@ -61,8 +60,7 @@ export async function getHomepageSeries(): Promise<Art[]> {
       "featureImage": featureImage.asset->url,
       "featureImageAlt": featureImage.alt,
       images
-    }`,
-    { cache: 'no-store' }
+    }`
   )
 }
 
@@ -73,8 +71,7 @@ export async function getPages(): Promise<Page[]> {
       _createdAt,
       title,
       "slug": slug.current
-    }`,
-    { cache: 'no-store' }
+    }`
   )
 }
 
@@ -93,6 +90,6 @@ export async function getPage(slug: string): Promise<Page> {
         image
       }
     }`,
-    { slug, cache: 'no-store' }
+    { slug }
   )
 }

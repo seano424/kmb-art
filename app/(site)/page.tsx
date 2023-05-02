@@ -1,7 +1,7 @@
 import { getHomepageSeries } from '@/sanity/sanity-utils'
 import ImageGrid from '../components/ImageGrid'
 
-export const revalidate = 10
+export const revalidate = 604800
 
 export default async function Home() {
   const images = await getHomepageSeries()
