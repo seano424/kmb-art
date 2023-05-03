@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Nav from '../components/Nav'
 import { Montserrat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
-import { getPages } from '@/sanity/sanity-utils'
+import { getNavItems } from '@/sanity/sanity-utils'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
@@ -18,7 +18,9 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const pages = await getPages()
+  const navItems = await getNavItems()
+
+  console.log('Navigation Items: ', navItems)
 
   return (
     <html lang='en'>
@@ -39,7 +41,7 @@ export default async function RootLayout({
             <Link className='text-3xl font-bold tracking-widest' href='/'>
               Karrie Marie
             </Link>
-            <Nav pages={pages} />
+            <Nav navItems={navItems} />
           </div>
         </header>
         <main className='relative top-40 px-10'>{children}</main>

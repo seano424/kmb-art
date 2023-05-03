@@ -4,14 +4,14 @@ import clsx from 'clsx'
 import { usePathname } from 'next/navigation'
 
 interface Props {
-  pages: {
+  navItems: {
     _id: string
     slug: string
     title: string
   }[]
 }
 
-const Navigation = ({ pages }: Props) => {
+const Navigation = ({ navItems }: Props) => {
   const pathname = usePathname()
 
   return (
@@ -27,18 +27,18 @@ const Navigation = ({ pages }: Props) => {
       >
         Work
       </Link>
-      {pages.map((page) => (
+      {navItems.map((navItem) => (
         <Link
-          key={page._id}
-          href={`/${page.slug}`}
+          key={navItem?._id}
+          href={`/${navItem?.slug}`}
           className={clsx(
             'hover:text-pink-600 hover:bg-pink-50 focus:text-pink-600 focus:bg-pink-50 transition-all duration-150 ease-linear underline-offset-8 px-5',
-            pathname === `/${page.slug.toLowerCase()}`
+            pathname === `/${navItem?.slug.toLowerCase()}`
               ? 'text-pink-600 bg-pink-50 hover:bg-pink-100 focus:bg-pink-100'
               : 'text-zinc-800'
           )}
         >
-          {page.title}
+          {navItem?.title}
         </Link>
       ))}
     </div>
