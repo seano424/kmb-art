@@ -13,7 +13,7 @@ const images = {
     {
       name: 'alt',
       type: 'string',
-      title: 'Alt',
+      title: 'Title',
     },
   ],
 }
