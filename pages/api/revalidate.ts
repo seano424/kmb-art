@@ -1,29 +1,26 @@
 import { isValidRequest } from '@sanity/webhook'
-import type { NextApiRequest, NextApiResponse } from 'next'
+import { NextApiRequest, NextApiResponse } from 'next'
 
-type Data = {
-  message: string
-}
+const secret = process.env.SANITY_WEBHOOK
 
-const secret = process.env.SANITY_WEBHOOK_SECRET
-
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  if (!isValidRequest(req, secret!)) {
-    res.status(401).json({ message: 'Invalid signature' })
-    return
-  }
-
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  //authenticating the webhook
   try {
-    const {
-      body: { slug },
-    } = req
+    if (!isValidRequest(req, secret!)) {
+      res.status(401).json({ message: 'Invalid signature' })
+      return
+    }
 
+    //getting payload
+    const { slug } = req.body
+    await res.revalidate(`/`)
+    await res.revalidate(`/work/`)
     await res.revalidate(`/work/${slug}`)
-    return res.json({ message: 'No managed type' })
-  } catch (err) {
-    return res.status(500).send({ message: 'Error revalidating' })
+
+    res.status(200).json({ msg: 'Art pages revalidated.' })
+  } catch (error) {
+    res.status(500).json({ err: 'Something went wrong!' })
   }
 }
+
+export default handler
