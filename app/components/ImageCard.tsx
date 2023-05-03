@@ -7,15 +7,20 @@ import { urlFor } from '@/sanity/sanity-utils'
 interface Props {
   work: Art
   priority?: boolean
+  size: 'sm' | 'lg'
 }
 
-const ImageCard = ({ work, priority = false }: Props) => {
+const ImageCard = ({ work, priority = false, size }: Props) => {
+  const sm = size === 'sm'
+  const lg = size === 'lg'
+
   return (
     <Link
       href={`/work/${work.slug}`}
       className={clsx(
-        'group relative rounded-lg p-1',
-        'h-[350px] md:h-[500px] lg:h-[800px]'
+        'group relative rounded-lg p-1 shadow-lg',
+        sm && 'h-[350px] md:h-[400px] lg:h-[700px]',
+        lg && 'h-[350px] md:h-[500px] lg:h-[800px]'
       )}
     >
       {work.featureImage && (

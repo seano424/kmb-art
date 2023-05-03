@@ -39,7 +39,7 @@ export const Filter = ({ images }: Props) => {
           </button>
         ))}
       </div>
-      <ImageGrid images={images} filterValue={filterValue} />
+      <ImageGrid images={images} filterValue={filterValue} size='sm' />
     </div>
   )
 }
