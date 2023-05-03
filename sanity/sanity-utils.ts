@@ -48,9 +48,9 @@ export async function getWork(slug: string): Promise<Art> {
   )
 }
 
-export async function getHomepageSeries(): Promise<Art[]> {
+export async function gethomepageImages(): Promise<Art[]> {
   return client.fetch(
-    groq`*[_type == "homepageSeries"][0].artSeries[]-> | order(_createdAt desc){
+    groq`*[_type == "homepageImages"][0].artSeries[]-> {
       _createdAt,
       _id,
       title,

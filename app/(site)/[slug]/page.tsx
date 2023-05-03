@@ -18,7 +18,7 @@ export async function generateMetadata({
   const page = await getPage(slug)
 
   return {
-    title: `${page.title ?? ''} | Karrie Marie`,
+    title: `${page.title} | Karrie Marie`,
   }
 }
 

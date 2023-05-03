@@ -1,10 +1,10 @@
-import { CircleIcon } from '@sanity/icons'
+import { MoonIcon } from '@sanity/icons'
 
 const page = {
   name: 'page',
   title: 'Pages',
   type: 'document',
-  icon: CircleIcon,
+  icon: MoonIcon,
   fields: [
     {
       name: 'title',

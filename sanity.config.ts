@@ -2,7 +2,7 @@ import { defineConfig, buildLegacyTheme } from 'sanity'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 import { deskTool } from 'sanity/desk'
 import schemas from './sanity/schemas'
-import { ImagesIcon } from '@sanity/icons'
+import { ImagesIcon, EarthAmericasIcon } from '@sanity/icons'
 
 const props = {
   '--my-white': '#fff',
@@ -60,17 +60,22 @@ const config = defineConfig({
         S.list()
           .title('Content')
           .items([
+            S.documentTypeListItem('art-work'),
             S.listItem()
-              .title('Homepage Series / Images')
+              .title('Homepage Images')
               .icon(ImagesIcon)
               .child(
                 S.document()
-                  .schemaType('homepageSeries')
-                  .documentId('homepageSeries')
+                  .schemaType('homepageImages')
+                  .documentId('homepageImages')
               ),
-            ...S.documentTypeListItems().filter(
-              (listItem: any) => !['homepageSeries'].includes(listItem.getId())
-            ),
+            S.listItem()
+              .title('Navigation')
+              .icon(EarthAmericasIcon)
+              .child(
+                S.document().schemaType('navigation').documentId('navigation')
+              ),
+            S.documentTypeListItem('page'),
           ]),
     }),
     unsplashImageAsset(),

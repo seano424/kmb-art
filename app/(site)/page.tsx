@@ -1,10 +1,10 @@
-import { getHomepageSeries } from '@/sanity/sanity-utils'
+import { gethomepageImages } from '@/sanity/sanity-utils'
 import ImageGrid from '../components/ImageGrid'
 
 export const revalidate = 604800
 
 export default async function Home() {
-  const images = await getHomepageSeries()
+  const images = await gethomepageImages()
 
   return (
     <div className='py-10 md:py-5 lg:py-0'>
