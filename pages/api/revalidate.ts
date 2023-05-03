@@ -21,9 +21,7 @@ export default async function handler(
       body: { slug },
     } = req
 
-    // await res.revalidate(`/work/${slug}`)
-    // await res.revalidate(`/work/`)
-    await res.revalidate(`/`)
+    await res.revalidate(`/work/${slug}`)
     return res.json({ message: 'No managed type' })
   } catch (err) {
     return res.status(500).send({ message: 'Error revalidating' })
