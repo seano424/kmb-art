@@ -27,9 +27,9 @@ const Navigation = ({ navItems }: Props) => {
       >
         Work
       </Link>
-      {navItems.map((navItem) => (
+      {navItems.map((navItem, i) => (
         <Link
-          key={navItem?._id}
+          key={i}
           href={`/${navItem?.slug}`}
           className={clsx(
             'hover:text-pink-600 hover:bg-pink-50 focus:text-pink-600 focus:bg-pink-50 transition-all duration-150 ease-linear underline-offset-8 px-5',
