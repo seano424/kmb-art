@@ -26,7 +26,7 @@ const page = {
       fields: [
         {
           name: 'alt',
-          title: 'Alt',
+          title: 'Title',
           type: 'string',
         },
       ],
