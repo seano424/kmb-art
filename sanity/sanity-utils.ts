@@ -71,8 +71,7 @@ export async function getPages(): Promise<Page[]> {
       _createdAt,
       title,
       "slug": slug.current
-    }`,
-    { cache: 'no-store' }
+    }`
   )
 }
 

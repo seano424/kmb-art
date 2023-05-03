@@ -11,6 +11,8 @@ const handler = async (req, res) => {
 
     //getting payload
     const { slug } = req.body
+    await res.revalidate(`/`)
+    await res.revalidate(`/work`)
     await res.revalidate(`/${slug}`)
 
     res.status(200).json({ msg: 'Single pages revalidated.' })
