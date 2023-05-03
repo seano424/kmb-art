@@ -20,8 +20,6 @@ export default async function RootLayout({
 }) {
   const navItems = await getNavItems()
 
-  console.log('Navigation Items: ', navItems)
-
   return (
     <html lang='en'>
       <body
