@@ -1,11 +1,11 @@
-import '../globals.css'
 import clsx from 'clsx'
+import '../globals.css'
 import Link from 'next/link'
+import { Metadata } from 'next'
 import Nav from '../components/Nav'
 import { Montserrat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { getNavItems } from '@/sanity/sanity-utils'
-import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.karriemariebaxley.com'),
