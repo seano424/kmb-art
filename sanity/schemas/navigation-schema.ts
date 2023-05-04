@@ -1,5 +1,4 @@
 import { EarthGlobeIcon, MoonIcon } from '@sanity/icons'
-import { Rule } from 'sanity'
 
 const navigation = {
   name: 'navigation',
@@ -11,6 +10,18 @@ const navigation = {
       name: 'title',
       title: 'Title',
       type: 'string',
+    },
+    {
+      name: 'logoTitle',
+      title: 'Logo Title',
+      type: 'string',
+    },
+    {
+      name: 'logoImg',
+      title: 'Logo Image',
+      description: 'This is optional. Will override logo title',
+      type: 'image',
+      options: { hotspot: true },
     },
     {
       name: 'navigationLinks',

@@ -1,40 +1,43 @@
-'use client'
-import Link from 'next/link'
 import clsx from 'clsx'
-import { usePathname } from 'next/navigation'
+import { getNavItems } from '@/sanity/sanity-utils'
+import NavItems from './NavItems'
+import Link from 'next/link'
+import Image from 'next/image'
+import { urlFor } from '@/sanity/sanity-utils'
 
-interface Props {
-  navItems: {
-    _id: string
-    slug: string
-    title: string
-  }[]
-}
-
-const Navigation = ({ navItems }: Props) => {
-  const pathname = usePathname()
-  console.log(navItems);
-  
-
+export default async function Nav() {
+  const navItems = await getNavItems()
+  console.log(navItems)
   return (
-    <div className='flex flex-col md:flex-row items-center justify-center text-xs md:text-base gap-2 lg:gap-5 font-bold tracking-widest md:border-b-4 border-zinc-800 md:pb-2 lg:pl-20'>
-      {navItems &&
-        navItems.map((navItem, i) => (
+    <nav
+      className={clsx(
+        'sticky left-0 right-0 top-0 py-10 z-20',
+        'bg-white uppercase flex items-center'
+      )}
+    >
+      <div className='px-10 w-full flex items-center justify-between gap-2'>
+        {navItems.logoImg ? (
           <Link
-            key={i}
-            href={`/${navItem.slug}`}
-            className={clsx(
-              'hover:text-pink-600 hover:bg-pink-50 focus:text-pink-600 focus:bg-pink-50 transition-all duration-150 ease-linear underline-offset-8 px-5',
-              pathname === `/${navItem.slug?.toLowerCase()}`
-                ? 'text-pink-600 bg-pink-50 hover:bg-pink-100 focus:bg-pink-100'
-                : 'text-zinc-800'
-            )}
+            href='/'
+            className='relative w-[300px] md:w-[200px] lg:w-[400px] h-24 lg:h-36'
           >
-            {navItem.title}
+            <Image
+              src={urlFor(navItems.logoImg).url()}
+              alt='Logo for Karrie Marie Baxley'
+              className='object-cover rounded-sm'
+              fill
+            />
+            <div className='absolute inset-0 flex justify-center items-center font-black text-white text-center lg:text-3xl'>
+              <p>{navItems.logoTitle ?? ''}</p>
+            </div>
           </Link>
-        ))}
-    </div>
+        ) : (
+          <Link href='/' className='text-3xl font-bold tracking-widest'>
+            {navItems.logoTitle ?? 'Karrie Marie'}
+          </Link>
+        )}
+        <NavItems {...navItems} />
+      </div>
+    </nav>
   )
 }
-
-export default Navigation

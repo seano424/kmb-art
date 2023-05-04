@@ -1,11 +1,10 @@
-import clsx from 'clsx'
 import '../globals.css'
+import clsx from 'clsx'
 import Link from 'next/link'
 import { Metadata } from 'next'
 import Nav from '../components/Nav'
 import { Montserrat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
-import { getNavItems } from '@/sanity/sanity-utils'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.karriemariebaxley.com'),
@@ -51,8 +50,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const navItems = await getNavItems()
-
   return (
     <html lang='en'>
       <body
@@ -61,21 +58,9 @@ export default async function RootLayout({
           montserrat.className
         )}
       >
-        <header
-          className={clsx(
-            'py-10 h-40',
-            'fixed left-0 right-0 top-0 z-20',
-            'flex items-center bg-white'
-          )}
-        >
-          <div className='container flex justify-between gap-2 items-center uppercase'>
-            <Link className='text-3xl font-bold tracking-widest' href='/'>
-              Karrie Marie
-            </Link>
-            <Nav navItems={navItems} />
-          </div>
-        </header>
-        <main className='relative top-40 px-10'>{children}</main>
+        {/* @ts-expect-error Server Component */}
+        <Nav />
+        <main className='relative px-10'>{children}</main>
         <Analytics />
       </body>
     </html>

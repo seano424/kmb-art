@@ -3,6 +3,7 @@ import client from './config/client-config'
 import { Page } from '@/types/Page'
 import { Art } from '@/types/Art'
 import imageUrlBuilder from '@sanity/image-url'
+import { NavItems } from '@/types/NavItems'
 
 const builder = imageUrlBuilder(client)
 
@@ -64,18 +65,22 @@ export async function gethomepageImages(): Promise<Art[]> {
   )
 }
 
-export async function getNavItems(): Promise<Page[]> {
+export async function getNavItems(): Promise<NavItems> {
   return client.fetch(
-    groq`*[_type == "navigation"][0].navigationLinks[] {
-      _type == 'reference' => @-> {
-        _id,
-        _createdAt,
-        title,
-        "slug": slug.current
-      },
-      _type == "customURL" => {
-        "slug": slug.current,
-        title
+    groq`*[_type == "navigation"][0]{
+      logoTitle,
+      logoImg,
+      navigationLinks[] {
+        _type == 'reference' => @-> {
+          _id,
+          _createdAt,
+          title,
+          "slug": slug.current
+        },
+        _type == "customURL" => {
+          "slug": slug.current,
+          title
+        }
       }
     }`
   )
