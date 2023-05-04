@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import { getNavItems } from '@/sanity/sanity-utils'
 import NavItemsDesktop from './NavItemsDesktop'
 import NavLogo from './NavLogo'
+import NavItemsMobile from './NavItemsMobile'
 
 export default async function Nav() {
   const navItems = await getNavItems()
@@ -16,6 +17,7 @@ export default async function Nav() {
       <div className='px-10 w-full flex items-center justify-between gap-2'>
         <NavLogo {...navItems} />
         <NavItemsDesktop {...navItems} />
+        <NavItemsMobile />
       </div>
     </nav>
   )
