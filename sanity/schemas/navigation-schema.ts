@@ -14,12 +14,13 @@ const navigation = {
     {
       name: 'logoTitle',
       title: 'Logo Title',
+      description: 'This is optional. Defaults to "Karrie Marie".',
       type: 'string',
     },
     {
       name: 'logoImg',
       title: 'Logo Image',
-      description: 'This is optional. Will override logo title',
+      description: 'This is optional',
       type: 'image',
       options: { hotspot: true },
     },
