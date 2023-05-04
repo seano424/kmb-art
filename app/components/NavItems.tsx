@@ -19,7 +19,7 @@ function NavItems(navItems: NavItems) {
     >
       {navItems.navigationLinks &&
         navItems.navigationLinks
-          .filter((item) => item.slug !== null)
+          .filter((item) => item.slug)
           .map((navItem, i) => (
             <Link
               key={i}
