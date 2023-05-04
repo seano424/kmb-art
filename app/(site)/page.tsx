@@ -7,7 +7,7 @@ export default async function Home() {
   const images = await gethomepageImages()
 
   return (
-    <div className='py-10 md:py-5 lg:py-0'>
+    <div className='py-10'>
       {images && <ImageGrid images={images} size="lg" />}
     </div>
   )
