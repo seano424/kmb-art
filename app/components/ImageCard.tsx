@@ -20,7 +20,7 @@ const ImageCard = ({ work, priority = false, size }: Props) => {
       className={clsx(
         'group relative rounded-lg p-1',
         sm && 'h-[350px] md:h-[400px] lg:h-[400px]',
-        lg && 'h-[350px] md:h-[500px] lg:h-[700px]'
+        lg && 'h-[350px] md:h-[500px] lg:h-[750px]'
       )}
     >
       {work.featureImage && (
