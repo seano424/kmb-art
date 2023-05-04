@@ -44,6 +44,8 @@ export const metadata: Metadata = {
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
+const devMode = process.env.DEVMODE
+
 export default async function RootLayout({
   children,
 }: {
@@ -53,6 +55,7 @@ export default async function RootLayout({
     <html lang='en'>
       <body
         className={clsx(
+          devMode && 'debug-screens',
           'max-w-8xl mx-auto scroll-smooth',
           montserrat.className
         )}
