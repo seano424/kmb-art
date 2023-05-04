@@ -3,6 +3,7 @@ import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 import { deskTool } from 'sanity/desk'
 import schemas from './sanity/schemas'
 import { ImagesIcon, EarthAmericasIcon } from '@sanity/icons'
+import { visionTool } from '@sanity/vision'
 
 const props = {
   '--my-white': '#fff',
@@ -79,6 +80,10 @@ const config = defineConfig({
           ]),
     }),
     unsplashImageAsset(),
+    visionTool({
+      defaultApiVersion: 'v2023-05-04',
+      defaultDataset: 'production',
+    }),
   ],
   schema: { types: schemas },
 })

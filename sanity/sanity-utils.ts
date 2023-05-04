@@ -66,11 +66,17 @@ export async function gethomepageImages(): Promise<Art[]> {
 
 export async function getNavItems(): Promise<Page[]> {
   return client.fetch(
-    groq`*[_type == "navigation"][0].navigationLinks[]-> {
-      _id,
-      _createdAt,
-      title,
-      "slug": slug.current
+    groq`*[_type == "navigation"][0].navigationLinks[] {
+      _type == 'reference' => @-> {
+        _id,
+        _createdAt,
+        title,
+        "slug": slug.current
+      },
+      _type == "customURL" => {
+        "slug": slug.current,
+        title
+      }
     }`
   )
 }

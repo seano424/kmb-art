@@ -1,4 +1,4 @@
-import { EarthGlobeIcon } from '@sanity/icons'
+import { EarthGlobeIcon, MoonIcon } from '@sanity/icons'
 import { Rule } from 'sanity'
 
 const navigation = {
@@ -22,8 +22,17 @@ const navigation = {
           to: [{ type: 'page' }],
           weak: true,
         },
+        {
+          type: 'object',
+          title: 'Custom URL',
+          name: 'customURL',
+          icon: MoonIcon,
+          fields: [
+            { type: 'string', name: 'title' },
+            { type: 'slug', name: 'slug' },
+          ],
+        },
       ],
-      validation: (Rule: Rule) => Rule.max(4),
     },
   ],
 }
