@@ -7,7 +7,7 @@ import { urlFor } from '@/sanity/sanity-utils'
 
 export default async function Nav() {
   const navItems = await getNavItems()
-  console.log(navItems)
+
   return (
     <nav
       className={clsx(
