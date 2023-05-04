@@ -18,9 +18,9 @@ const ImageCard = ({ work, priority = false, size }: Props) => {
     <Link
       href={`/work/${work.slug}`}
       className={clsx(
-        'group relative rounded-lg p-1 shadow-lg',
-        sm && 'h-[350px] md:h-[400px] lg:h-[700px]',
-        lg && 'h-[350px] md:h-[500px] lg:h-[800px]'
+        'group relative rounded-lg p-1',
+        sm && 'h-[350px] md:h-[400px] lg:h-[400px]',
+        lg && 'h-[350px] md:h-[500px] lg:h-[700px]'
       )}
     >
       {work.featureImage && (

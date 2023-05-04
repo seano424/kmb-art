@@ -11,7 +11,7 @@ export default async function Nav() {
   return (
     <nav
       className={clsx(
-        'sticky left-0 right-0 top-0 py-10 z-20',
+        'sticky left-0 right-0 top-0 py-5 z-20',
         'bg-white uppercase flex items-center'
       )}
     >

@@ -1,6 +1,5 @@
 import '../globals.css'
 import clsx from 'clsx'
-import Link from 'next/link'
 import { Metadata } from 'next'
 import Nav from '../components/Nav'
 import { Montserrat } from 'next/font/google'

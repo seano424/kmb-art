@@ -11,27 +11,29 @@ function NavItems(navItems: NavItems) {
     <div
       className={clsx(
         'gap-1 lg:gap-5',
-        'flex flex-col md:flex-row items-center justify-center',
+        'flex flex-col md:flex-row items-center justify-end lg:justify-center',
         'font-bold tracking-widest text-xs md:text-sm lg:text-base',
         'md:border-b-4 border-zinc-800',
         'md:pb-2 lg:pl-20'
       )}
     >
       {navItems.navigationLinks &&
-        navItems.navigationLinks.map((navItem, i) => (
-          <Link
-            key={i}
-            href={`/${navItem.slug}`}
-            className={clsx(
-              'hover:text-pink-600 hover:bg-pink-50 focus:text-pink-600 focus:bg-pink-50 transition-all duration-150 ease-linear underline-offset-8 px-5',
-              pathname === `/${navItem.slug?.toLowerCase()}`
-                ? 'text-pink-600 bg-pink-50 hover:bg-pink-100 focus:bg-pink-100'
-                : 'text-zinc-800'
-            )}
-          >
-            {navItem.title}
-          </Link>
-        ))}
+        navItems.navigationLinks
+          .filter((item) => item.slug !== null)
+          .map((navItem, i) => (
+            <Link
+              key={i}
+              href={`/${navItem.slug}`}
+              className={clsx(
+                'hover:text-pink-600 hover:bg-pink-50 focus:text-pink-600 focus:bg-pink-50 transition-all duration-150 ease-linear underline-offset-8 px-5',
+                pathname === `/${navItem.slug?.toLowerCase()}`
+                  ? 'text-pink-600 bg-pink-50 hover:bg-pink-100 focus:bg-pink-100'
+                  : 'text-zinc-800'
+              )}
+            >
+              {navItem.title}
+            </Link>
+          ))}
     </div>
   )
 }
