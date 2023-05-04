@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import { getNavItems } from '@/sanity/sanity-utils'
-import NavItems from './NavItems'
+import NavItemsDesktop from './NavItemsDesktop'
 import Link from 'next/link'
 import Image from 'next/image'
 import { urlFor } from '@/sanity/sanity-utils'
@@ -36,7 +36,7 @@ export default async function Nav() {
             {navItems.logoTitle ?? 'Karrie Marie'}
           </Link>
         )}
-        <NavItems {...navItems} />
+        <NavItemsDesktop {...navItems} />
       </div>
     </nav>
   )

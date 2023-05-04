@@ -5,15 +5,16 @@ import React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-function NavItems(navItems: NavItems) {
+function NavItemsDesktop(navItems: NavItems) {
   const pathname = usePathname()
   return (
     <div
       className={clsx(
+        'hidden xl:flex xl:flex-row',
         'gap-1 lg:gap-5',
-        'flex flex-col md:flex-row items-center justify-end lg:justify-center',
+        'items-center justify-end lg:justify-center',
         'font-bold tracking-widest text-xs md:text-sm lg:text-base',
-        'md:border-b-4 border-zinc-800',
+        'xl:border-b-4 border-zinc-800',
         'md:pb-2 lg:pl-20'
       )}
     >
@@ -38,4 +39,4 @@ function NavItems(navItems: NavItems) {
   )
 }
 
-export default NavItems
+export default NavItemsDesktop
