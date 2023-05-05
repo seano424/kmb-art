@@ -1,4 +1,4 @@
-import { defineConfig, buildLegacyTheme } from 'sanity'
+import { defineConfig, buildLegacyTheme, isDev } from 'sanity'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 import { deskTool } from 'sanity/desk'
 import schemas from './sanity/schemas'
@@ -48,6 +48,8 @@ export const myTheme = buildLegacyTheme({
   '--focus-color': props['--my-blue'],
 })
 
+const devOnlyPlugins = [visionTool()]
+
 const config = defineConfig({
   projectId: 'zlrcnyjm',
   dataset: 'production',
@@ -80,10 +82,7 @@ const config = defineConfig({
           ]),
     }),
     unsplashImageAsset(),
-    visionTool({
-      defaultApiVersion: 'v2023-05-04',
-      defaultDataset: 'production',
-    }),
+    ...(isDev ? devOnlyPlugins : []),
   ],
   schema: { types: schemas },
 })
