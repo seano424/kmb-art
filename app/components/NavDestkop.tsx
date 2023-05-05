@@ -11,7 +11,12 @@ export default function NavDestkop(navItems: NavItems) {
         'bg-white uppercase flex items-center'
       )}
     >
-      <div className='px-10 w-full flex items-center justify-between gap-2'>
+      <div
+        className={clsx(
+          !navItems.logoImg && 'py-10',
+          'px-10 w-full flex items-center justify-between gap-2'
+        )}
+      >
         <NavLogo {...navItems} />
         <NavItemsDesktop {...navItems} />
       </div>
