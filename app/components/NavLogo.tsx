@@ -10,7 +10,7 @@ export default function NavLogo(navItems: NavItems) {
       {navItems.logoImg ? (
         <Link
           href='/'
-          className='relative w-[300px] md:w-[200px] lg:w-[400px] h-24 lg:h-36'
+          className='relative w-[300px] lg:w-[400px] h-24 lg:h-36'
         >
           <Image
             src={urlFor(navItems.logoImg).url()}
