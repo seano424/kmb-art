@@ -4,6 +4,8 @@ import { Metadata } from 'next'
 import Nav from '../components/Nav'
 import { Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
+import { motion, AnimatePresence } from 'framer-motion'
+import Main from '../components/Main'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.karriemariebaxley.com'),
@@ -62,7 +64,7 @@ export default async function RootLayout({
       >
         {/* @ts-expect-error Server Component */}
         <Nav />
-        <main className='relative container top-20 xl:top-0'>{children}</main>
+        <Main children={children} />
         <Analytics />
       </body>
     </html>
