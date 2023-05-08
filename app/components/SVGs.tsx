@@ -8,7 +8,7 @@ export function Hamburger(props: SVGMotionProps<SVGSVGElement>) {
       viewBox='0 0 24 24'
       strokeWidth={1.5}
       stroke='currentColor'
-      className='w-10 h-10'
+      className='h-8 w-8 md:w-9 md:h-9'
     >
       <path
         strokeLinecap='round'
@@ -27,7 +27,7 @@ export function Close(props: SVGMotionProps<SVGSVGElement>) {
       viewBox='0 0 24 24'
       strokeWidth={1.5}
       stroke='currentColor'
-      className='w-10 h-10'
+      className='h-8 w-8 md:w-9 md:h-9'
     >
       <path
         strokeLinecap='round'

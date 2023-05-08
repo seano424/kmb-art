@@ -40,7 +40,7 @@ const ImageCard = ({ work, priority = false, size }: Props) => {
         <div className='flex flex-col'>
           <Link
             href={`/work/${work.slug}`}
-            className='group relative rounded-lg p-1 flex flex-col h-[350px] md:h-[500px] lg:h-[750px]'
+            className='group relative rounded-lg p-1 flex flex-col h-[250px] lg:h-[750px]'
           >
             {work.featureImage && (
               <Image
@@ -50,7 +50,7 @@ const ImageCard = ({ work, priority = false, size }: Props) => {
                   work.featureImage.alt ??
                   `Feature image for ${work.featureImage.alt}`
                 }
-                className='object-cover rounded transition'
+                className='object-cover rounded transition object-top'
                 priority={priority}
                 sizes='(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
