@@ -18,12 +18,12 @@ export default function NavLogo(navItems: NavItems) {
             className='object-cover rounded-sm'
             fill
           />
-          <div className='absolute inset-0 flex justify-center items-center font-black text-white text-center lg:text-3xl'>
-            <p>{navItems.logoTitle ?? ''}</p>
+          <div className='absolute inset-0 flex justify-center items-center text-white text-center'>
+            <h1 className='h1'>{navItems.logoTitle ?? ''}</h1>
           </div>
         </Link>
       ) : (
-        <Link href='/' className='text-3xl font-bold tracking-widest'>
+        <Link href='/' className='h1'>
           {navItems.logoTitle ?? 'Karrie Marie'}
         </Link>
       )}

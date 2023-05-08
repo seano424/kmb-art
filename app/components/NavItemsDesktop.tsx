@@ -10,9 +10,9 @@ function NavItemsDesktop(navItems: NavItems) {
   return (
     <div
       className={clsx(
+        'h2',
         'hidden xl:flex xl:flex-row',
         'items-center justify-end lg:justify-center',
-        'font-bold tracking-widest text-xs md:text-sm lg:text-base',
         'xl:border-b-4 border-zinc-800',
         'lg:pl-20'
       )}

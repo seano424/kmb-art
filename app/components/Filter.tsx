@@ -32,7 +32,7 @@ export const Filter = ({ images }: Props) => {
                   : 'no-underline',
                 'underline-offset-8',
                 'hover:underline focus:underline',
-                'tracking-widest text-xs md:text-sm lg:text-base uppercase'
+                'h3'
               )}
               onClick={() => setFilterValue(filter.value)}
             >

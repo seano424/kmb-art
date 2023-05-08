@@ -8,7 +8,7 @@ export default function NavDestkop(navItems: NavItems) {
     <nav
       className={clsx(
         'hidden container xl:block left-0 right-0 top-0 py-5 z-20',
-        'bg-white uppercase flex items-center'
+        'bg-white flex items-center'
       )}
     >
       <div
