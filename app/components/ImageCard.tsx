@@ -66,9 +66,7 @@ const ImageCard = ({ work, priority = false, size }: Props) => {
                 'bg-white transition-all duration-100 ease-linear p-10'
               )}
             >
-              <p className='text-white text-center p'>
-                {work.title}
-              </p>
+              <p className='text-white text-center h1'>{work.title}</p>
             </div>
           </Link>
         </div>
