@@ -34,7 +34,7 @@ export default function NavMobileMenu(props: Props) {
               },
             },
           }}
-          className='xl:hidden py-10 fixed top-20 left-0 right-0 z-10 bg-white flex flex-col items-center gap-10'
+          className='xl:hidden py-10 fixed top-16 left-0 right-0 z-10 bg-white flex flex-col items-center gap-10'
         >
           {navItems.navigationLinks.map((navLink) => (
             <Link
