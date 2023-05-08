@@ -1,20 +1,24 @@
-export default async function handler(req, res) {
-  // Check for secret to confirm this is a valid request
-  if (req.query.secret !== process.env.SANITY_WEBHOOK) {
-    return res.status(401).json({ message: 'Invalid token' })
-  }
+import { SIGNATURE_HEADER_NAME, isValidSignature } from '@sanity/webhook'
 
+const secret = process.env.SANITY_WEBHOOK
+
+const handler = async (req, res) => {
+  //authenticating the webhook
   try {
+    const signature = req.headers[SIGNATURE_HEADER_NAME].toString()
+    if (!isValidSignature(JSON.stringify(req.body), signature, secret))
+      return res.status(401).json({ msg: 'Invalid request!' })
+
     await res.revalidate(`/`)
     await res.revalidate(`/about`)
     await res.revalidate(`/garden`)
     await res.revalidate(`/events`)
     await res.revalidate(`/artwork`)
 
-    return res.json({ revalidated: true, msg: 'Navigation revalidated' })
-  } catch (err) {
-    // If there was an error, Next.js will continue
-    // to show the last successfully generated page
-    return res.status(500).send('Error revalidating: ', req.body)
+    res.status(200).json({ msg: 'Navigation revalidated.' })
+  } catch (error) {
+    res.status(500).json({ err: 'Something went Wrong!' })
   }
 }
+
+export default handler
