@@ -16,7 +16,7 @@ export default function NavMobile(navItems: NavItems) {
           'bg-white uppercase flex items-center'
         )}
       >
-        <div className='px-10 w-full flex items-center justify-between gap-2'>
+        <div className='w-full flex items-center justify-between gap-2'>
           <NavLogo {...navItems} />
           <NavMobileButton isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>

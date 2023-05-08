@@ -62,7 +62,7 @@ export default async function RootLayout({
       >
         {/* @ts-expect-error Server Component */}
         <Nav />
-        <main className='relative px-10'>{children}</main>
+        <main className='relative container'>{children}</main>
         <Analytics />
       </body>
     </html>
