@@ -12,22 +12,21 @@ interface Props {
 
 const ImageCard = ({ work, priority = false, size }: Props) => {
   const sm = size === 'sm'
-  const lg = size === 'lg'
 
   return (
     <>
       {sm ? (
         <Link href={`/work/${work.slug}`} className='flex flex-col gap-4'>
-          <div className='group relative rounded-lg p-1 flex flex-col h-[350px] md:h-[300px]'>
+          <div className='group relative p-1 flex flex-col h-[350px] md:h-[400px] border-8 overflow-hidden border-white '>
             {work.featureImage && (
               <Image
                 fill
-                src={urlFor(work.featureImage).height(800).url()}
+                src={urlFor(work.images[0].image).height(800).url()}
                 alt={
                   work.featureImage.alt ??
                   `Feature image for ${work.featureImage.alt}`
                 }
-                className='object-cover rounded transition'
+                className='object-cover  hover:scale-105 transition-all duration-700'
                 priority={priority}
                 sizes='(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
@@ -35,7 +34,7 @@ const ImageCard = ({ work, priority = false, size }: Props) => {
               />
             )}
           </div>
-          <p className='p'>{work.title}</p>
+          <p className='p text-center'>{work.title}</p>
         </Link>
       ) : (
         <div className='flex flex-col'>

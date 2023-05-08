@@ -9,7 +9,7 @@ export type Art = {
     url: string
     alt: string
   }
-  images?: {
+  images: {
     alt: string
     url: string
     image: {}
