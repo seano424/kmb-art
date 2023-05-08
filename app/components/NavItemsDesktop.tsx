@@ -11,13 +11,23 @@ function NavItemsDesktop(navItems: NavItems) {
     <div
       className={clsx(
         'hidden xl:flex xl:flex-row',
-        'gap-1 lg:gap-5',
         'items-center justify-end lg:justify-center',
         'font-bold tracking-widest text-xs md:text-sm lg:text-base',
         'xl:border-b-4 border-zinc-800',
-        'md:pb-2 lg:pl-20'
+        'lg:pl-20'
       )}
     >
+      <Link
+        href='/'
+        className={clsx(
+          ' hover:bg-pink-100 focus:bg-pink-100 transition-all duration-150 ease-linear underline-offset-8 px-5',
+          pathname === `/`
+            ? 'text-pink-600 bg-pink-200 hover:bg-pink-100 focus:bg-pink-100 hover:text-pink-600 focus:text-pink-600'
+            : 'text-zinc-800 hover:text-black focus:text-black'
+        )}
+      >
+        Home
+      </Link>
       {navItems.navigationLinks &&
         navItems.navigationLinks
           .filter((item) => item.slug)
@@ -26,10 +36,10 @@ function NavItemsDesktop(navItems: NavItems) {
               key={i}
               href={`/${navItem.slug}`}
               className={clsx(
-                'hover:text-pink-600 hover:bg-pink-50 focus:text-pink-600 focus:bg-pink-50 transition-all duration-150 ease-linear underline-offset-8 px-5',
+                'hover:bg-pink-100 focus:bg-pink-100 transition-all duration-150 ease-linear underline-offset-8 px-5',
                 pathname === `/${navItem.slug?.toLowerCase()}`
-                  ? 'text-pink-600 bg-pink-50 hover:bg-pink-100 focus:bg-pink-100'
-                  : 'text-zinc-800'
+                  ? 'text-pink-600 bg-pink-200 hover:bg-pink-100 focus:bg-pink-100 hover:text-pink-600 focus:text-pink-600'
+                  : 'text-zinc-800 hover:text-black focus:text-black'
               )}
             >
               {navItem.title}
