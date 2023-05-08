@@ -10,7 +10,7 @@ interface Props {
 }
 
 export default function NavMobileMenu(props: Props) {
-  const { navItems, isOpen, setIsOpen } = props
+  const { navItems, isOpen } = props
   return (
     <AnimatePresence>
       {isOpen && (
@@ -20,21 +20,21 @@ export default function NavMobileMenu(props: Props) {
           animate={{
             translateY: 0,
             transition: {
-              height: {
-                duration: 1.4,
+              translateY: {
+                duration: 0.4,
               },
             },
           }}
           exit={{
-            translateY: -300,
+            translateY: -500,
             transition: {
-              height: {
-                duration: 1.4,
+              translateY: {
+                duration: 0.4,
                 delay: 0.25,
               },
             },
           }}
-          className='xl:hidden py-10 fixed top-32 left-0 right-0 z-10 bg-white/95 filter backdrop-blur-sm flex flex-col items-center gap-10 font-black text-3xl'
+          className='xl:hidden py-10 fixed top-20 left-0 right-0 z-10 bg-white flex flex-col items-center gap-10 font-black text-3xl'
         >
           {navItems.navigationLinks.map((navLink) => (
             <Link key={navLink._id} href={`/${navLink.slug}`}>
@@ -51,11 +51,6 @@ export default function NavMobileMenu(props: Props) {
                 }}
                 exit={{
                   opacity: 0,
-                  transition: {
-                    opacity: {
-                      duration: 0.15,
-                    },
-                  },
                 }}
               >
                 {navLink.title}

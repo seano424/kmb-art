@@ -1,5 +1,5 @@
 .h1 {
-  @apply font-bold text-xl md:text-2xl lg:text-5xl;
+  @apply font-black text-xl md:text-2xl lg:text-5xl;
 }
 
 .h2 {

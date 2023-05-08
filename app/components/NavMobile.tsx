@@ -12,7 +12,7 @@ export default function NavMobile(navItems: NavItems) {
     <header>
       <nav
         className={clsx(
-          'xl:hidden fixed left-0 right-0 top-0 py-5 z-20',
+          'xl:hidden fixed left-0 right-0 top-0 py-5 z-20 container',
           'bg-white uppercase flex items-center'
         )}
       >
