@@ -15,7 +15,7 @@ const handler = async (req, res) => {
     await res.revalidate(`/work/`)
     await res.revalidate(`/work/${slug}`)
 
-    res.status(200).json({ msg: 'Product pages revalidated.' })
+    res.status(200).json({ msg: 'Artwork pages revalidated.' })
   } catch (error) {
     res.status(500).json({ err: 'Something went Wrong!' })
   }
