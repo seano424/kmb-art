@@ -37,7 +37,7 @@ export const Filter = ({ images }: Props) => {
                     ? ' text-blue-600'
                     : 'no-underline text-gray-900',
                   'relative transition-all duration-300 ease-linear',
-                  'h3 hover:text-blue-600'
+                  'md:h3 text-xs hover:text-blue-600'
                 )}
                 onClick={() => setFilterValue(filter.value)}
               >
