@@ -2,7 +2,7 @@ import '../globals.css'
 import clsx from 'clsx'
 import { Metadata } from 'next'
 import Nav from '../components/Nav'
-import { Montserrat } from 'next/font/google'
+import { Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 
 export const metadata: Metadata = {
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   icons: '/favicon.ico',
 }
 
-const montserrat = Montserrat({ subsets: ['latin'] })
+const playfair = Playfair_Display({ subsets: ['latin'] })
 
 const devMode = process.env.DEVMODE
 
@@ -57,7 +57,7 @@ export default async function RootLayout({
         className={clsx(
           devMode && 'debug-screens',
           'max-w-8xl mx-auto scroll-smooth',
-          montserrat.className
+          playfair.className
         )}
       >
         {/* @ts-expect-error Server Component */}

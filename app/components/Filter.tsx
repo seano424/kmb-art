@@ -4,6 +4,9 @@ import { useState } from 'react'
 import { Art } from '@/types/Art'
 import clsx from 'clsx'
 import ImageGrid from './ImageGrid'
+import { Montserrat } from 'next/font/google'
+
+const montserrat = Montserrat({ subsets: ['latin'] })
 
 const filters = [
   { title: 'Paintings', value: 'paintings' },
@@ -20,7 +23,7 @@ export const Filter = ({ images }: Props) => {
   const [filterValue, setFilterValue] = useState('')
 
   return (
-    <div className='grid gap-10 py-5'>
+    <div className={clsx('grid gap-10 py-5', montserrat.className)}>
       <div className='flex justify-center lg:justify-end w-full'>
         <div className='flex gap-3 md:gap-10'>
           {filters.map((filter) => (
