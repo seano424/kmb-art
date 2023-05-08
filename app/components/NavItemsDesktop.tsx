@@ -20,9 +20,9 @@ function NavItemsDesktop(navItems: NavItems) {
       <Link
         href='/'
         className={clsx(
-          ' hover:bg-pink-100 focus:bg-pink-100 transition-all duration-150 ease-linear underline-offset-8 px-5',
+          ' hover:bg-blue-100 focus:bg-blue-100 transition-all duration-150 ease-linear underline-offset-8 px-5',
           pathname === `/`
-            ? 'text-pink-600 bg-pink-200 hover:bg-pink-100 focus:bg-pink-100 hover:text-pink-600 focus:text-pink-600'
+            ? 'text-blue-600 bg-blue-200 hover:bg-blue-100 focus:bg-blue-100 hover:text-blue-600 focus:text-blue-600'
             : 'text-zinc-800 hover:text-black focus:text-black'
         )}
       >
@@ -36,9 +36,9 @@ function NavItemsDesktop(navItems: NavItems) {
               key={i}
               href={`/${navItem.slug}`}
               className={clsx(
-                'hover:bg-pink-100 focus:bg-pink-100 transition-all duration-150 ease-linear underline-offset-8 px-5',
+                'hover:bg-blue-100 focus:bg-blue-100 transition-all duration-150 ease-linear underline-offset-8 px-5',
                 pathname === `/${navItem.slug?.toLowerCase()}`
-                  ? 'text-pink-600 bg-pink-200 hover:bg-pink-100 focus:bg-pink-100 hover:text-pink-600 focus:text-pink-600'
+                  ? 'text-blue-600 bg-blue-200 hover:bg-blue-100 focus:bg-blue-100 hover:text-blue-600 focus:text-blue-600'
                   : 'text-zinc-800 hover:text-black focus:text-black'
               )}
             >
