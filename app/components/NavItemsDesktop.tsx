@@ -14,7 +14,7 @@ function NavItemsDesktop(navItems: NavItems) {
         'hidden xl:flex xl:flex-row',
         'items-center justify-end lg:justify-center',
         'xl:border-b-4 border-zinc-800',
-        'lg:pl-20'
+
       )}
     >
       <Link
