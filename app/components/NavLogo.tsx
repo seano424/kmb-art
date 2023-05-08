@@ -8,10 +8,7 @@ export default function NavLogo(navItems: NavItems) {
   return (
     <>
       {navItems.logoImg ? (
-        <Link
-          href='/'
-          className='relative w-[300px] lg:w-[400px] h-24 lg:h-36'
-        >
+        <Link href='/' className='relative w-[300px] lg:w-[400px] h-24 lg:h-36'>
           <Image
             src={urlFor(navItems.logoImg).url()}
             alt='Logo for Karrie Marie Baxley'
@@ -23,7 +20,7 @@ export default function NavLogo(navItems: NavItems) {
           </div>
         </Link>
       ) : (
-        <Link href='/' className='h1'>
+        <Link href='/' className='h1 text-blue-500'>
           {navItems.logoTitle ?? 'Karrie Marie'}
         </Link>
       )}
