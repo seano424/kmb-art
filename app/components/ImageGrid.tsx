@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { Art } from '@/types/Art'
 import ImageCard from './ImageCard'
 
@@ -8,8 +9,14 @@ interface Props {
 }
 
 const ImageGrid = ({ images, filterValue, size }: Props) => {
+  const sm = size === 'sm'
   return (
-    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+    <div
+      className={clsx(
+        'grid grid-cols-1',
+        sm ? 'gap-10 md:grid-cols-2' : 'gap-5 md:grid-cols-2 lg:grid-cols-3'
+      )}
+    >
       {filterValue
         ? images
             .filter((image) => image.category!.includes(filterValue))

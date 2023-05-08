@@ -12,7 +12,7 @@ module.exports = {
     extend: {},
     container: {
       center: true,
-      padding: '1rem',
+      padding: '2rem',
     },
     debugScreens: {
       position: ['bottom', 'right'],
