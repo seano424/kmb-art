@@ -8,7 +8,7 @@ export default async function Home() {
 
   return (
     <div className='py-10 md:py-5'>
-      {images && <ImageGrid images={images} size="lg" />}
+      {images && <ImageGrid images={images} size='lg' />}
     </div>
   )
 }
