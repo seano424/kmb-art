@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Art } from '@/types/Art'
-import { urlFor } from '@/sanity/sanity-utils'
+import urlFor from '@/sanity/urlFor'
 
 interface Props {
   work: Art

@@ -1,10 +1,8 @@
-import { gethomepageImages } from '@/sanity/sanity-utils'
+import getHomepageImages from '@/sanity/hooks/getHomepageImages'
 import ImageGrid from '../components/ImageGrid'
 
-export const revalidate = 604800
-
 export default async function Home() {
-  const images = await gethomepageImages()
+  const images = await getHomepageImages()
 
   return (
     <div className='py-10 md:py-5'>

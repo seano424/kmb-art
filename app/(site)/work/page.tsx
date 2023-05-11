@@ -1,7 +1,5 @@
 import { Filter } from '@/app/components/Filter'
-import { getWorks } from '@/sanity/sanity-utils'
-
-export const revalidate = 604800
+import getWorks from '@/sanity/hooks/getWorks'
 
 export default async function Works() {
   const images = await getWorks()

@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation'
 
 function NavItemsDesktop(navItems: NavItems) {
   const pathname = usePathname()
-  console.log('dataset: ', process.env.NEXT_PUBLIC_SANITY_DB)
+
   return (
     <div
       className={clsx(

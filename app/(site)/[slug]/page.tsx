@@ -1,4 +1,5 @@
-import { getPage, urlFor } from '@/sanity/sanity-utils'
+import urlFor from '@/sanity/urlFor'
+import getPage from '@/sanity/hooks/getPage'
 import { PortableText } from '@portabletext/react'
 import Image from 'next/image'
 import MyLightbox from '@/app/components/MyLightbox'
@@ -6,8 +7,6 @@ import MyLightbox from '@/app/components/MyLightbox'
 type Props = {
   params: { slug: string }
 }
-
-export const revalidate = 604800
 
 export async function generateMetadata({
   params,

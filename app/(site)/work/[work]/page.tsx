@@ -1,13 +1,13 @@
-import { getWork, getWorks, urlFor } from '@/sanity/sanity-utils'
-import Image from 'next/image'
 import Link from 'next/link'
+import Image from 'next/image'
+import getWork from '@/sanity/hooks/getWork'
+import getWorks from '@/sanity/hooks/getWorks'
+import urlFor from '@/sanity/urlFor'
 import MyLightbox from '@/app/components/MyLightbox'
 
 type Props = {
   params: { work: string }
 }
-
-export const revalidate = 604800
 
 export async function generateMetadata({
   params,
@@ -18,7 +18,7 @@ export async function generateMetadata({
   const work = await getWork(slug)
 
   return {
-    title: work.title,
+    title: work.title ?? 'Work by Karrie Marie',
   }
 }
 

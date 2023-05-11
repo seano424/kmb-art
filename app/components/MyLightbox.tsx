@@ -5,7 +5,7 @@ import React from 'react'
 import Image from 'next/image'
 import Lightbox from 'yet-another-react-lightbox'
 import Captions from 'yet-another-react-lightbox/plugins/captions'
-import { urlFor } from '@/sanity/sanity-utils'
+import urlFor from '@/sanity/urlFor'
 
 import 'yet-another-react-lightbox/styles.css'
 
