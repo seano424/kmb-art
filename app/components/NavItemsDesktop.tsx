@@ -13,31 +13,20 @@ function NavItemsDesktop(navItems: NavItems) {
         'h2',
         'hidden xl:flex xl:flex-row',
         'items-center justify-end lg:justify-center',
-        'xl:border-b-4 border-zinc-800',
-
+        'xl:border-b-4 border-zinc-800'
       )}
     >
-      <Link
-        href='/'
-        className={clsx(
-          ' hover:bg-blue-100 focus:bg-blue-100 transition-all duration-150 ease-linear underline-offset-8 px-5',
-          pathname === `/`
-            ? 'text-blue-600 bg-blue-200 hover:bg-blue-100 focus:bg-blue-100 hover:text-blue-600 focus:text-blue-600'
-            : 'text-zinc-800 hover:text-black focus:text-black'
-        )}
-      >
-        Home
-      </Link>
       {navItems.navigationLinks &&
         navItems.navigationLinks
-          .filter((item) => item.slug)
+          .filter((item) => item.title)
           .map((navItem, i) => (
             <Link
               key={i}
-              href={`/${navItem.slug}`}
+              href={navItem.slug ? `/${navItem.slug}` : '/'}
               className={clsx(
                 'hover:bg-blue-100 focus:bg-blue-100 transition-all duration-150 ease-linear underline-offset-8 px-5',
-                pathname === `/${navItem.slug?.toLowerCase()}`
+                pathname ===
+                  `/${navItem.slug ? navItem.slug.toLowerCase() : ''}`
                   ? 'text-blue-600 bg-blue-200 hover:bg-blue-100 focus:bg-blue-100 hover:text-blue-600 focus:text-blue-600'
                   : 'text-zinc-800 hover:text-black focus:text-black'
               )}
