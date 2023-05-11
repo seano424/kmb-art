@@ -1,23 +1,6 @@
 import url from '../url'
-import devMode from '@/lib/devMode'
-
-export type Work = {
-  _id: string
-  _createdAt: Date
-  title: string
-  description?: string
-  slug: string
-  category: string
-  featureImage: {
-    url: string
-    alt: string
-  }
-  images: {
-    alt: string
-    url: string
-    image: {}
-  }[]
-}
+const devMode = process.env.NEXT_PUBLIC_SANITY_DB === 'development'
+import { Work } from './getWork'
 
 async function getHomepageImages(): Promise<Work[]> {
   url.searchParams.set(
