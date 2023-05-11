@@ -1,5 +1,5 @@
 import url from '../url'
-const devMode = process.env.NEXT_PUBLIC_SANITY_DB === 'development'
+import devMode from '@/lib/devMode'
 import { Work } from './getWork'
 
 async function getHomepageImages(): Promise<Work[]> {

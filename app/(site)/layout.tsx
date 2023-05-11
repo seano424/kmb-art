@@ -5,7 +5,7 @@ import Nav from '../components/Nav'
 import { Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import Main from '../components/Main'
-const devMode = process.env.NEXT_PUBLIC_SANITY_DB === 'development'
+import devMode from '@/lib/devMode'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.karriemariebaxley.com'),

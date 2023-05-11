@@ -1,2 +1,2 @@
-const devMode = process.env.NEXT_PUBLIC_SANITY_DB === 'development'
+import devMode from '@/lib/devMode'
 export default devMode
