@@ -1,4 +1,5 @@
 import url from '../url'
+const devMode = process.env.NEXT_PUBLIC_SANITY_DB === 'development'
 
 export type Work = {
   _id: string
@@ -35,7 +36,10 @@ async function getHomepageImages(): Promise<Work[]> {
     }
     `
   )
-  const data: any = await fetch(url.toString(), { next: { tags: ['works'] } })
+  const data: any = await fetch(url.toString(), {
+    next: { tags: ['works'] },
+    cache: devMode ? 'no-store' : 'force-cache',
+  })
   const json = await data.json()
   return json.result
 }
