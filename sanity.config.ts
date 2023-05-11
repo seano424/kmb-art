@@ -9,7 +9,7 @@ const devOnlyPlugins = [visionTool()]
 
 const config = defineConfig({
   projectId: 'zlrcnyjm',
-  dataset: process.env.NEXT_PUBLIC_SANITY_DB!,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DB || 'production',
   title: 'Karrie Marie Studio',
   apiVersion: '2023-04-07',
   basePath: '/studio',
