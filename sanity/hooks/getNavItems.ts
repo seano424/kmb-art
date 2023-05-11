@@ -1,4 +1,5 @@
 import url from '@/sanity/url'
+const devMode = process.env.NEXT_PUBLIC_SANITY_DB === 'development'
 
 async function getNavItems() {
   url.searchParams.set(
@@ -22,7 +23,10 @@ async function getNavItems() {
     }
   `
   )
-  const data = await fetch(url.toString(), { next: { tags: ['navigation'] } })
+  const data = await fetch(url.toString(), {
+    next: { tags: ['navigation'] },
+    cache: devMode ? 'no-store' : 'force-cache',
+  })
   return await data.json()
 }
 

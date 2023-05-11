@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 
 const playfair = Playfair_Display({ subsets: ['latin'] })
 
-const devMode = process.env.DEVMODE
+const devMode = process.env.NEXT_PUBLIC_SANITY_DB === 'development'
 
 export default async function RootLayout({
   children,
