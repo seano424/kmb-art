@@ -1,8 +1,10 @@
 import { createClient } from 'next-sanity'
 
+const dataset = process.env.NODE_ENV
+
 const config = {
   projectId: 'zlrcnyjm',
-  dataset: 'production',
+  dataset: dataset,
   apiVersion: '2023-03-09',
   useCdn: false,
 }

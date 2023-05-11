@@ -7,9 +7,11 @@ import { visionTool } from '@sanity/vision'
 
 const devOnlyPlugins = [visionTool()]
 
+const dataset = process.env.NODE_ENV
+
 const config = defineConfig({
   projectId: 'zlrcnyjm',
-  dataset: 'production',
+  dataset: dataset,
   title: 'Karrie Marie Studio',
   apiVersion: '2023-04-07',
   basePath: '/studio',
