@@ -1,8 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { NavItems } from '@/types/NavItems'
 import urlFor from '@/sanity/urlFor'
+import { NavItems } from '@/sanity/hooks/getNavItems'
 
 export default function NavLogo(navItems: NavItems) {
   return (

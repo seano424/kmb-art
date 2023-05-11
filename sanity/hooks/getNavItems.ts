@@ -1,7 +1,17 @@
 import url from '@/sanity/url'
 import devMode from '@/lib/devMode'
 
-async function getNavItems() {
+export type NavItems = {
+  navigationLinks: {
+    slug?: string
+    title?: string
+    _id?: string
+  }[]
+  logoTitle?: string
+  logoImg?: string
+}
+
+async function getNavItems(): Promise<NavItems> {
   url.searchParams.set(
     'query',
     `
@@ -27,8 +37,8 @@ async function getNavItems() {
     next: { tags: ['navigation'] },
     cache: devMode ? 'no-store' : 'force-cache',
   })
-  return await data.json()
+  const json = await data.json()
+  return json.result
 }
 
 export default getNavItems
-// import getNavItems from '@/sanity/hooks/getNavItems'

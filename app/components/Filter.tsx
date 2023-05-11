@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
-import { Art } from '@/types/Art'
 import clsx from 'clsx'
+import { useState } from 'react'
+import { Work } from '@/sanity/hooks/getWork'
 import ImageGrid from './ImageGrid'
 import { Montserrat } from 'next/font/google'
 import { motion, LayoutGroup } from 'framer-motion'
@@ -17,7 +17,7 @@ const filters = [
 ]
 
 interface Props {
-  images: Art[]
+  images: Work[]
 }
 
 export const Filter = ({ images }: Props) => {

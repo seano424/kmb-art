@@ -1,9 +1,9 @@
 import clsx from 'clsx'
-import { Art } from '@/types/Art'
 import ImageCard from './ImageCard'
+import { Work } from '@/sanity/hooks/getWork'
 
 interface Props {
-  images: Art[]
+  images: Work[]
   filterValue?: string
   size?: 'sm' | 'lg'
 }

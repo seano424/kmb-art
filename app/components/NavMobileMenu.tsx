@@ -1,7 +1,7 @@
 import React from 'react'
-import { NavItems } from '@/types/NavItems'
-import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
+import { NavItems } from '@/sanity/hooks/getNavItems'
+import { motion, AnimatePresence } from 'framer-motion'
 
 interface Props {
   navItems: NavItems
@@ -36,11 +36,11 @@ export default function NavMobileMenu(props: Props) {
           }}
           className='xl:hidden py-10 fixed top-16 left-0 right-0 z-10 bg-white flex flex-col items-center gap-10'
         >
-          {navItems.navigationLinks.map((navLink) => (
+          {navItems.navigationLinks.map((navLink, i) => (
             <Link
               onClick={() => setIsOpen((prev) => !prev)}
               className='font-black text-3xl hover:underline focus:underline transition-all duration-300 ease-linear'
-              key={navLink._id}
+              key={i}
               href={`/${navLink.slug}`}
             >
               <motion.span

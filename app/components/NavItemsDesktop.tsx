@@ -1,9 +1,9 @@
 'use client'
 import clsx from 'clsx'
-import { NavItems } from '@/types/NavItems'
 import React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { NavItems } from '@/sanity/hooks/getNavItems'
 
 function NavItemsDesktop(navItems: NavItems) {
   const pathname = usePathname()

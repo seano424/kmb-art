@@ -10,8 +10,8 @@ export default async function Nav() {
 
   return (
     <div className={montserrat.className}>
-      <NavDestkop {...navItems.result} />
-      <NavMobile {...navItems.result} />
+      <NavDestkop {...navItems} />
+      <NavMobile {...navItems} />
     </div>
   )
 }

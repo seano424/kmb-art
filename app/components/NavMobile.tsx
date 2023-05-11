@@ -2,7 +2,7 @@
 import React from 'react'
 import clsx from 'clsx'
 import NavLogo from './NavLogo'
-import { NavItems } from '@/types/NavItems'
+import { NavItems } from '@/sanity/hooks/getNavItems'
 import NavMobileButton from './NavMobileButton'
 import NavMobileMenu from './NavMobileMenu'
 

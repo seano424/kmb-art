@@ -1,7 +1,7 @@
 import clsx from 'clsx'
-import NavItemsDesktop from './NavItemsDesktop'
 import NavLogo from './NavLogo'
-import { NavItems } from '@/types/NavItems'
+import NavItemsDesktop from './NavItemsDesktop'
+import { NavItems } from '@/sanity/hooks/getNavItems'
 
 export default function NavDestkop(navItems: NavItems) {
   return (

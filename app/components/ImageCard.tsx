@@ -1,11 +1,11 @@
 import clsx from 'clsx'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Art } from '@/types/Art'
 import urlFor from '@/sanity/urlFor'
+import { Work } from '@/sanity/hooks/getWork'
 
 interface Props {
-  work: Art
+  work: Work
   priority?: boolean
   size: 'sm' | 'lg'
 }
