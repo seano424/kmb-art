@@ -6,7 +6,7 @@ import imageUrlBuilder from '@sanity/image-url'
 import { NavItems } from '@/types/NavItems'
 
 const builder = imageUrlBuilder(client)
-const devMode = process.env.SANITY_DB === 'development'
+const devMode = process.env.NEXT_PUBLIC_SANITY_DB === 'development'
 
 export function urlFor(source: any) {
   return builder.image(source)

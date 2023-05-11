@@ -7,11 +7,9 @@ import { visionTool } from '@sanity/vision'
 
 const devOnlyPlugins = [visionTool()]
 
-const dataset = process.env.SANITY_DB
-
 const config = defineConfig({
   projectId: 'zlrcnyjm',
-  dataset: dataset || 'production',
+  dataset: process.env.NEXT_PUBLIC_SANITY_DB!,
   title: 'Karrie Marie Studio',
   apiVersion: '2023-04-07',
   basePath: '/studio',
