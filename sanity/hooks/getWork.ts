@@ -39,7 +39,7 @@ async function getWork(slug: string): Promise<Work> {
     }
     `
   )
-  const data: any = await fetch(url.toString(), {
+  const data = await fetch(url.toString(), {
     next: { tags: [slug] },
     cache: devMode ? 'no-store' : 'force-cache',
   })

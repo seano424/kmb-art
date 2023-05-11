@@ -37,7 +37,7 @@ async function getPage(slug: string): Promise<Page> {
     }
   `
   )
-  const data: any = await fetch(url.toString(), {
+  const data = await fetch(url.toString(), {
     next: { tags: [slug] },
     cache: devMode ? 'no-store' : 'force-cache',
   })

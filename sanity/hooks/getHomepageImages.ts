@@ -36,7 +36,7 @@ async function getHomepageImages(): Promise<Work[]> {
     }
     `
   )
-  const data: any = await fetch(url.toString(), {
+  const data = await fetch(url.toString(), {
     next: { tags: ['works'] },
     cache: devMode ? 'no-store' : 'force-cache',
   })
