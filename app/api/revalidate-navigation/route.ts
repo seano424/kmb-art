@@ -2,12 +2,12 @@ import { NextRequest, NextResponse } from 'next/server'
 import { revalidateTag } from 'next/cache'
 
 export async function POST(request: NextRequest) {
-  const secret = await request.headers.get('secret')
+  const tag = await request.headers.get('tag')
 
-  if (secret !== 'testing123') {
-    return NextResponse.json({ revalidated: false, secret })
+  if (tag !== 'navigation') {
+    return NextResponse.json({ revalidated: false })
   }
 
-  revalidateTag('navigation')
-  return NextResponse.json({ revalidated: true, now: Date.now(), secret })
+  revalidateTag(tag ?? '')
+  return NextResponse.json({ revalidated: true, now: Date.now() })
 }
