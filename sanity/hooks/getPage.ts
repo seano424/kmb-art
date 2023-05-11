@@ -1,6 +1,6 @@
 import { PortableTextBlock } from 'sanity'
 import url from '../url'
-const devMode = process.env.NEXT_PUBLIC_SANITY_DB === 'development'
+import devMode from '@/lib/devMode'
 
 export type Page = {
   _id: string

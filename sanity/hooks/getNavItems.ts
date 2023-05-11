@@ -1,5 +1,5 @@
 import url from '@/sanity/url'
-const devMode = process.env.NEXT_PUBLIC_SANITY_DB === 'development'
+import devMode from '@/lib/devMode'
 
 async function getNavItems() {
   url.searchParams.set(
