@@ -6,7 +6,7 @@ import imageUrlBuilder from '@sanity/image-url'
 import { NavItems } from '@/types/NavItems'
 
 const builder = imageUrlBuilder(client)
-const devMode = process.env.NODE_ENV === 'development'
+const devMode = process.env.NEXT_PUBLIC_SANITY_DB === 'development'
 
 export function urlFor(source: any) {
   return builder.image(source)
@@ -70,7 +70,7 @@ export async function fetchNavItems() {
   const url = devMode
     ? "https://zlrcnyjm.api.sanity.io/v2021-10-21/data/query/development?query=*%5B_type%20%3D%3D%20%22navigation%22%5D%5B0%5D%7B%0A%20%20%20%20%20%20logoTitle%2C%0A%20%20%20%20%20%20logoImg%2C%0A%20%20%20%20%20%20navigationLinks%5B%5D%20%7B%0A%20%20%20%20%20%20%20%20_type%20%3D%3D%20'reference'%20%3D%3E%20%40-%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20_id%2C%0A%20%20%20%20%20%20%20%20%20%20_createdAt%2C%0A%20%20%20%20%20%20%20%20%20%20title%2C%0A%20%20%20%20%20%20%20%20%20%20%22slug%22%3A%20slug.current%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20_type%20%3D%3D%20%22customURL%22%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%22slug%22%3A%20slug.current%2C%0A%20%20%20%20%20%20%20%20%20%20title%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D"
     : "https://zlrcnyjm.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%20%3D%3D%20%22navigation%22%5D%5B0%5D%7B%0A%20%20%20%20%20%20logoTitle%2C%0A%20%20%20%20%20%20logoImg%2C%0A%20%20%20%20%20%20navigationLinks%5B%5D%20%7B%0A%20%20%20%20%20%20%20%20_type%20%3D%3D%20'reference'%20%3D%3E%20%40-%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20_id%2C%0A%20%20%20%20%20%20%20%20%20%20_createdAt%2C%0A%20%20%20%20%20%20%20%20%20%20title%2C%0A%20%20%20%20%20%20%20%20%20%20%22slug%22%3A%20slug.current%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20_type%20%3D%3D%20%22customURL%22%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%22slug%22%3A%20slug.current%2C%0A%20%20%20%20%20%20%20%20%20%20title%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D"
-    
+
   const data = await fetch(url, { next: { tags: ['navigation'] } })
   const navItems = await data.json()
 

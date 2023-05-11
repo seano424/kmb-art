@@ -10,6 +10,7 @@ const navigation = {
       name: 'title',
       title: 'Title',
       type: 'string',
+      hidden: true,
     },
     {
       name: 'logoTitle',
@@ -47,6 +48,13 @@ const navigation = {
       ],
     },
   ],
+  preview: {
+    prepare(selection: any) {
+      return Object.assign({}, selection, {
+        title: `Navigation`,
+      })
+    },
+  },
 }
 
 export default navigation
