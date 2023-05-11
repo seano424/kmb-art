@@ -4,7 +4,6 @@ import { Metadata } from 'next'
 import Nav from '../components/Nav'
 import { Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
-import { motion, AnimatePresence } from 'framer-motion'
 import Main from '../components/Main'
 
 export const metadata: Metadata = {
