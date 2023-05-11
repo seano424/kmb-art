@@ -8,6 +8,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ revalidated: false })
   }
 
-  revalidateTag(tag ?? '')
+  revalidateTag(tag)
   return NextResponse.json({ revalidated: true, now: Date.now() })
 }

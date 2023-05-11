@@ -1,0 +1,3 @@
+POST https://www.karriemariebaxley.com/api/revalidate-navigation
+content-type: application/json
+tag: navigation
