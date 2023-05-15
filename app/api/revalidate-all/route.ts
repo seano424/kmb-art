@@ -24,6 +24,10 @@ export async function POST(request: NextRequest) {
       case 'homepageImages':
         revalidateTag('homepage-images')
         break
+      case 'art-work':
+        revalidateTag('homepage-images')
+        revalidateTag(slug)
+        break
       default:
         revalidateTag(slug)
         revalidateTag('navigation')
