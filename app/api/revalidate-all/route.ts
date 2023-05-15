@@ -26,6 +26,7 @@ export async function POST(request: NextRequest) {
         break
       default:
         revalidateTag(slug)
+        revalidateTag('navigation')
         break
     }
 

@@ -1,3 +1,9 @@
-POST https://www.karriemariebaxley.com/api/revalidate-navigation
+POST https://www.karriemariebaxley.com/api/revalidate-all
 content-type: application/json
-tag: navigation
+secret: testing123
+
+{
+    "_type": "navigation",
+    "slug": "about",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
