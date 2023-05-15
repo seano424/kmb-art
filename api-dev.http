@@ -1,4 +1,10 @@
-POST http://localhost:3000/api/revalidate-navigation
+POST http://localhost:3000/api/revalidate-all
 content-type: application/json
 tag: navigation
 secret: testing123
+
+{
+    "_type": "pages",
+    "slug": "about",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
