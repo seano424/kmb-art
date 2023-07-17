@@ -5,7 +5,6 @@ import Nav from '../components/Nav'
 import { Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import Main from '../components/Main'
-const devMode = process.env.NEXT_PUBLIC_SANITY_DB === 'development'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.karriemariebaxley.com'),
@@ -42,9 +41,12 @@ export const metadata: Metadata = {
   },
   creator: `Sean O'Reilly`,
   icons: '/favicon.ico',
+  verification: { google: '0L3Tmxx4oLHcu1uU5VEdOO__BbzXhWzED_wvBvidZs8' },
 }
 
 const playfair = Playfair_Display({ subsets: ['latin'] })
+
+const devMode = process.env.NEXT_PUBLIC_SANITY_DB === 'development'
 
 export default async function RootLayout({
   children,
