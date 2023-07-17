@@ -30,18 +30,10 @@ export const metadata: Metadata = {
   generator: 'Next.js',
   referrer: 'origin-when-cross-origin',
   keywords: ['Karrie Marie Baxley', 'Kansas City Artist and Painter'],
-  robots: {
-    follow: true,
-    nocache: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      nocache: true,
-    },
-  },
   creator: `Sean O'Reilly`,
   icons: '/favicon.ico',
   verification: { google: '0L3Tmxx4oLHcu1uU5VEdOO__BbzXhWzED_wvBvidZs8' },
+  robots: 'index, follow',
 }
 
 const playfair = Playfair_Display({ subsets: ['latin'] })
