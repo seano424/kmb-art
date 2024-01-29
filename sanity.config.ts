@@ -2,7 +2,7 @@ import {defineConfig, isDev} from 'sanity'
 import {unsplashImageAsset} from 'sanity-plugin-asset-source-unsplash'
 import {deskTool} from 'sanity/desk'
 import schemas from './sanity/schemas'
-import {ImagesIcon, EarthAmericasIcon} from '@sanity/icons'
+import {ImagesIcon, EarthAmericasIcon, HomeIcon} from '@sanity/icons'
 import {visionTool} from '@sanity/vision'
 
 const devOnlyPlugins = [visionTool()]
@@ -21,12 +21,11 @@ const config = defineConfig({
           .items([
             S.listItem()
               .title('Homepage')
-              .icon(ImagesIcon)
+              .icon(HomeIcon)
               .child(
-                S.document()
-                  .schemaType('featuredImage')
-                  .documentId('featuredImage')
+                S.document().schemaType('homepage').documentId('homepage')
               ),
+
             S.documentTypeListItem('art-work'),
             S.listItem()
               .title('Navigation')
