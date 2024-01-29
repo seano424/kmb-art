@@ -35,6 +35,7 @@ const config = defineConfig({
                 S.document().schemaType('navigation').documentId('navigation')
               ),
             S.documentTypeListItem('page'),
+            S.documentTypeListItem('events'),
           ]),
     }),
     unsplashImageAsset(),

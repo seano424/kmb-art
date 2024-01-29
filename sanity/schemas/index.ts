@@ -4,6 +4,7 @@ import artWork from './artwork-schema'
 import navigation from './navigation-schema'
 import homepageImages from './homepage-images-schema'
 import featuredImage from './featured-image'
+import events from './events'
 
 const schemas = [
   images,
@@ -12,6 +13,7 @@ const schemas = [
   homepageImages,
   navigation,
   featuredImage,
+  events
 ]
 
 export default schemas

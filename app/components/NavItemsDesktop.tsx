@@ -41,6 +41,7 @@ function NavItemsDesktop(navItems: NavItems) {
       </Link>
 
       <li className="flex gap-5 w-1/3 justify-end">
+        <Link href='/events'>Events</Link>
         {navItems.navigationLinks &&
           navItems.navigationLinks
             .filter((item) => item.title)
