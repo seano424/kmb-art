@@ -38,6 +38,7 @@ export default async function Home() {
         {works &&
           works.slice(0, 2).map((work) => (
             <Link
+              key={work._id}
               href={`/work/${work.slug}`}
               className="relative h-[700px]"
             >

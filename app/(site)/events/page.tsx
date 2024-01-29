@@ -10,36 +10,37 @@ export default async function Events() {
   return (
     <>
       {allEvents.map((event) => (
-        <div>
-          <div className="flex flex-col gap-10 py-5">
-            <div className="flex flex-col gap-10 items-center">
-              {event?.image && (
-                <div className="relative h-[300px] w-full">
-                  <Image
-                    src={urlFor(event.image).url()}
-                    alt={event.image.alt ?? 'featured image'}
-                    className="object-cover"
-                    fill
-                  />
-                </div>
-              )}
+        <div
+          key={event._id}
+          className="flex flex-col gap-10 py-5"
+        >
+          <div className="flex flex-col gap-10 items-center">
+            {event?.image && (
+              <div className="relative h-[300px] w-full">
+                <Image
+                  src={urlFor(event.image).url()}
+                  alt={event.image.alt ?? 'featured image'}
+                  className="object-cover"
+                  fill
+                />
+              </div>
+            )}
 
-              <h2 className="text-4xl font-light text-center">{event.title}</h2>
+            <h2 className="text-4xl font-light text-center">{event.title}</h2>
 
-              {event?.content && (
-                <div className="text-lg text-center text-gray-700 w-full">
-                  <PortableText value={event.content} />
-                </div>
-              )}
-            </div>
-
-            {event?.images && (
-              <MyLightbox
-                grid
-                images={event.images}
-              />
+            {event?.content && (
+              <div className="text-lg text-center text-gray-700 w-full">
+                <PortableText value={event.content} />
+              </div>
             )}
           </div>
+
+          {event?.images && (
+            <MyLightbox
+              grid
+              images={event.images}
+            />
+          )}
         </div>
       ))}
     </>
