@@ -20,7 +20,7 @@ const config = defineConfig({
           .title('Content')
           .items([
             S.listItem()
-              .title('Featured Image')
+              .title('Homepage')
               .icon(ImagesIcon)
               .child(
                 S.document()
@@ -28,14 +28,6 @@ const config = defineConfig({
                   .documentId('featuredImage')
               ),
             S.documentTypeListItem('art-work'),
-            S.listItem()
-              .title('Homepage Images')
-              .icon(ImagesIcon)
-              .child(
-                S.document()
-                  .schemaType('homepageImages')
-                  .documentId('homepageImages')
-              ),
             S.listItem()
               .title('Navigation')
               .icon(EarthAmericasIcon)
