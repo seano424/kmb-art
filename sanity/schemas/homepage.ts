@@ -17,6 +17,7 @@ const homepage = {
       name: 'featureImage',
       title: 'Feature Image',
       type: 'image',
+      required: true,
       options: {
         hotspot: true,
       },
@@ -28,6 +29,20 @@ const homepage = {
         },
       ],
       validation: (Rule: Rule) => Rule.required(),
+    },
+    {
+      name: 'ctaAllArt',
+      title: 'Call To Action for Artwork Page',
+      type: 'object',
+      fields: [
+        {name: 'heading', type: 'string', title: 'Heading', required: true},
+        {
+          name: 'label',
+          type: 'string',
+          title: 'Link Button Label',
+          required: true,
+        },
+      ],
     },
     {
       name: 'featuredSeries',

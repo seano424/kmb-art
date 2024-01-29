@@ -13,7 +13,7 @@ export type Homepage = {
     _type: string
   }
   _updatedAt: Date
-  popularPrints: [
+  popularPrints?: [
     {
       image: {
         _type: string
@@ -27,7 +27,7 @@ export type Homepage = {
   _key: string
   _createdAt: Date
   _rev: string
-  featuredSeries: [
+  featuredSeries?: [
     {
       featureImage: {
         _type: string
@@ -45,6 +45,10 @@ export type Homepage = {
       }
     }
   ]
+  ctaAllArt?: {
+    heading: string
+    label: string
+  }
 }
 
 async function getHomepage(): Promise<Homepage> {
@@ -62,7 +66,8 @@ async function getHomepage(): Promise<Homepage> {
       _createdAt,
       _rev,
       _type,
-      _id
+      _id,
+      ctaAllArt
     }
     `
   )
