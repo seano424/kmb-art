@@ -1,4 +1,5 @@
 import url from '../url'
+const devMode = process.env.devMode
 
 export type Pages = {
   slug: string
@@ -17,7 +18,7 @@ async function getPages(): Promise<Pages> {
   )
 
   const data = await fetch(url.toString(), {
-    next: { tags: ['pages'] },
+    next: {tags: ['pages'], revalidate: devMode ? 1 : 60},
   })
 
   const json = await data.json()

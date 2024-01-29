@@ -1,6 +1,6 @@
-import { PortableTextBlock } from 'sanity'
+import {PortableTextBlock} from 'sanity'
 import url from '../url'
-const devMode = process.env.NEXT_PUBLIC_SANITY_DB === 'development'
+const devMode = process.env.devMode
 
 export type Page = {
   _id: string
@@ -38,8 +38,7 @@ async function getPage(slug: string): Promise<Page> {
   `
   )
   const data = await fetch(url.toString(), {
-    next: { tags: [slug] },
-    cache: devMode ? 'no-store' : 'force-cache',
+    next: { tags: [slug], revalidate: devMode ? 1 : 60 },
   })
   const json = await data.json()
   return json.result

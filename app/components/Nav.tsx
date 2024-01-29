@@ -1,15 +1,15 @@
 import NavDestkop from './NavDestkop'
 import NavMobile from './NavMobile'
-import { Montserrat } from 'next/font/google'
+import {Playfair_Display} from 'next/font/google'
 import getNavItems from '@/sanity/hooks/getNavItems'
 
-const montserrat = Montserrat({ subsets: ['latin'] })
+const playfair = Playfair_Display({subsets: ['latin']})
 
 export default async function Nav() {
   const navItems = await getNavItems()
 
   return (
-    <div className={montserrat.className}>
+    <div className={playfair.className}>
       <NavDestkop {...navItems} />
       <NavMobile {...navItems} />
     </div>

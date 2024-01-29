@@ -1,41 +1,67 @@
 'use client'
+
 import clsx from 'clsx'
 import React from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { NavItems } from '@/sanity/hooks/getNavItems'
+import {usePathname} from 'next/navigation'
+import {NavItems} from '@/sanity/hooks/getNavItems'
 
 function NavItemsDesktop(navItems: NavItems) {
   const pathname = usePathname()
 
   return (
-    <div
-      className={clsx(
-        'h2',
-        'hidden xl:flex xl:flex-row',
-        'items-center justify-end lg:justify-center',
-        'xl:border-b-4 border-zinc-800'
-      )}
-    >
-      {navItems.navigationLinks &&
-        navItems.navigationLinks
-          .filter((item) => item.title)
-          .map((navItem, i) => (
-            <Link
-              key={i}
-              href={navItem.slug ? `/${navItem.slug}` : '/'}
-              className={clsx(
-                'hover:bg-blue-100 focus:bg-blue-100 transition-all duration-150 ease-linear underline-offset-8 px-5',
-                pathname ===
-                  `/${navItem.slug ? navItem.slug.toLowerCase() : ''}`
-                  ? 'text-blue-600 bg-blue-200 hover:bg-blue-100 focus:bg-blue-100 hover:text-blue-600 focus:text-blue-600'
-                  : 'text-zinc-800 hover:text-black focus:text-black'
-              )}
-            >
-              {navItem.title}
-            </Link>
-          ))}
-    </div>
+    <ul className={clsx('hidden xl:flex justify-between items-center w-full')}>
+      <li className="flex gap-5 w-1/3">
+        {navItems.navigationLinks &&
+          navItems.navigationLinks
+            .filter((item) => item.title)
+            .slice(0, 3)
+            .map((navItem, i) => (
+              <Link
+                key={i}
+                href={navItem.slug ? `/${navItem.slug}` : '/'}
+                className={clsx(
+                  '',
+                  pathname ===
+                    `/${navItem.slug ? navItem.slug.toLowerCase() : ''}`
+                    ? ''
+                    : ''
+                )}
+              >
+                {navItem.title}
+              </Link>
+            ))}
+      </li>
+
+      <Link
+        className="text-4xl"
+        href={'/'}
+      >
+        Karrie Marie Baxley
+      </Link>
+
+      <li className="flex gap-5 w-1/3 justify-end">
+        {navItems.navigationLinks &&
+          navItems.navigationLinks
+            .filter((item) => item.title)
+            .slice(3, navItems.navigationLinks.length + 1)
+            .map((navItem, i) => (
+              <Link
+                key={i}
+                href={navItem.slug ? `/${navItem.slug}` : '/'}
+                className={clsx(
+                  '',
+                  pathname ===
+                    `/${navItem.slug ? navItem.slug.toLowerCase() : ''}`
+                    ? ''
+                    : ''
+                )}
+              >
+                {navItem.title}
+              </Link>
+            ))}
+      </li>
+    </ul>
   )
 }
 

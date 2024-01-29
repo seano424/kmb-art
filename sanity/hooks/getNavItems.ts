@@ -1,5 +1,5 @@
 import url from '@/sanity/url'
-const devMode = process.env.NEXT_PUBLIC_SANITY_DB === 'development'
+const devMode = process.env.devMode
 
 export type NavItems = {
   navigationLinks: {
@@ -34,8 +34,7 @@ async function getNavItems(): Promise<NavItems> {
   `
   )
   const data = await fetch(url.toString(), {
-    next: { tags: ['navigation'] },
-    cache: devMode ? 'no-store' : 'force-cache',
+    next: {tags: ['navigation'], revalidate: devMode ? 1 : 60},
   })
   const json = await data.json()
   return json.result

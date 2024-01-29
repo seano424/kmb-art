@@ -1,6 +1,6 @@
 import url from '../url'
 const devMode = process.env.NEXT_PUBLIC_SANITY_DB === 'development'
-import { Work } from './getWork'
+import {Work} from './getWork'
 
 async function getHomepageImages(): Promise<Work[]> {
   url.searchParams.set(
@@ -20,8 +20,7 @@ async function getHomepageImages(): Promise<Work[]> {
     `
   )
   const data = await fetch(url.toString(), {
-    next: { tags: ['homepage-images'] },
-    cache: devMode ? 'no-store' : 'force-cache',
+    next: {tags: ['homepage-images'], revalidate: devMode ? 1 : 60},
   })
   const json = await data.json()
   return json.result

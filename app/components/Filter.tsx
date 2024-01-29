@@ -1,32 +1,29 @@
 'use client'
 
 import clsx from 'clsx'
-import { useState } from 'react'
-import { Work } from '@/sanity/hooks/getWork'
+import {useState} from 'react'
+import {Work} from '@/sanity/hooks/getWork'
 import ImageGrid from './ImageGrid'
-import { Montserrat } from 'next/font/google'
-import { motion, LayoutGroup } from 'framer-motion'
-
-const montserrat = Montserrat({ subsets: ['latin'] })
+import {motion, LayoutGroup} from 'framer-motion'
 
 const filters = [
-  { title: 'Paintings', value: 'paintings' },
-  { title: 'Alcohol Inks', value: 'alcohol-inks' },
-  { title: 'Charcoals/Pastels', value: 'charcoals' },
-  { title: 'All Works', value: '' },
+  {title: 'Paintings', value: 'paintings'},
+  {title: 'Alcohol Inks', value: 'alcohol-inks'},
+  {title: 'Charcoals/Pastels', value: 'charcoals'},
+  {title: 'All Works', value: ''},
 ]
 
 interface Props {
   images: Work[]
 }
 
-export const Filter = ({ images }: Props) => {
+export const Filter = ({images}: Props) => {
   const [filterValue, setFilterValue] = useState('')
 
   return (
-    <div className={clsx('grid gap-10 py-5', montserrat.className)}>
-      <div className='flex justify-center lg:justify-end w-full rounded-2xl'>
-        <div className='flex gap-3 md:gap-10'>
+    <div className={clsx('grid gap-10 py-5')}>
+      <div className="flex justify-center lg:justify-end w-full rounded-2xl">
+        <div className="flex gap-3 md:gap-10">
           <LayoutGroup>
             {filters.map((filter) => (
               <motion.button
@@ -44,8 +41,8 @@ export const Filter = ({ images }: Props) => {
                 {filter.title}
                 {filterValue === filter.value && (
                   <motion.span
-                    layoutId='underline'
-                    className='absolute top-full left-0 w-full h-1 rounded-2xl bg-blue-600'
+                    layoutId="underline"
+                    className="absolute top-full left-0 w-full h-1 rounded-2xl bg-blue-600"
                   ></motion.span>
                 )}
               </motion.button>
@@ -53,7 +50,11 @@ export const Filter = ({ images }: Props) => {
           </LayoutGroup>
         </div>
       </div>
-      <ImageGrid images={images} filterValue={filterValue} size='sm' />
+      <ImageGrid
+        images={images}
+        filterValue={filterValue}
+        size="sm"
+      />
     </div>
   )
 }

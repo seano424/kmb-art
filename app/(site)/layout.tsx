@@ -1,9 +1,9 @@
 import '../globals.css'
 import clsx from 'clsx'
-import { Metadata } from 'next'
+import {Metadata} from 'next'
 import Nav from '../components/Nav'
-import { Playfair_Display } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/react'
+import {Playfair_Display} from 'next/font/google'
+import {Analytics} from '@vercel/analytics/react'
 import Main from '../components/Main'
 
 export const metadata: Metadata = {
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
   keywords: ['Karrie Marie Baxley', 'Kansas City Artist and Painter'],
   creator: `Sean O'Reilly`,
   icons: '/favicon.ico',
-  verification: { google: '0L3Tmxx4oLHcu1uU5VEdOO__BbzXhWzED_wvBvidZs8' },
+  verification: {google: '0L3Tmxx4oLHcu1uU5VEdOO__BbzXhWzED_wvBvidZs8'},
   robots: 'index, follow',
 }
 
-const playfair = Playfair_Display({ subsets: ['latin'] })
+const playfair = Playfair_Display({subsets: ['latin']})
 
-const devMode = process.env.NEXT_PUBLIC_SANITY_DB === 'development'
+const devMode = process.env.devMode
 
 export default async function RootLayout({
   children,
@@ -46,11 +46,11 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='en'>
+    <html lang="en">
       <body
         className={clsx(
           devMode && 'debug-screens',
-          'max-w-8xl mx-auto scroll-smooth',
+          'max-w-8xl mx-auto scroll-smooth container',
           playfair.className
         )}
       >

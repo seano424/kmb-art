@@ -1,6 +1,5 @@
 import url from '../url'
-const devMode = process.env.NEXT_PUBLIC_SANITY_DB === 'development'
-import {Work} from './getWork'
+const devMode = process.env.devMode
 
 export type FeaturedImage = {
   _createdAt: string
@@ -27,8 +26,7 @@ async function getFeaturedImage(): Promise<FeaturedImage> {
     `
   )
   const data = await fetch(url.toString(), {
-    next: {tags: ['featured-image']},
-    cache: devMode ? 'no-store' : 'force-cache',
+    next: {tags: ['featured-image'], revalidate: devMode ? 1 : 60},
   })
   const json = await data.json()
   return json.result
