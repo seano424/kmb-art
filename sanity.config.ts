@@ -1,9 +1,9 @@
-import { defineConfig, isDev } from 'sanity'
-import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
-import { deskTool } from 'sanity/desk'
+import {defineConfig, isDev} from 'sanity'
+import {unsplashImageAsset} from 'sanity-plugin-asset-source-unsplash'
+import {deskTool} from 'sanity/desk'
 import schemas from './sanity/schemas'
-import { ImagesIcon, EarthAmericasIcon } from '@sanity/icons'
-import { visionTool } from '@sanity/vision'
+import {ImagesIcon, EarthAmericasIcon} from '@sanity/icons'
+import {visionTool} from '@sanity/vision'
 
 const devOnlyPlugins = [visionTool()]
 
@@ -19,6 +19,14 @@ const config = defineConfig({
         S.list()
           .title('Content')
           .items([
+            S.listItem()
+              .title('Featured Image')
+              .icon(ImagesIcon)
+              .child(
+                S.document()
+                  .schemaType('featuredImage')
+                  .documentId('featuredImage')
+              ),
             S.documentTypeListItem('art-work'),
             S.listItem()
               .title('Homepage Images')
@@ -40,7 +48,7 @@ const config = defineConfig({
     unsplashImageAsset(),
     ...(isDev ? devOnlyPlugins : []),
   ],
-  schema: { types: schemas },
+  schema: {types: schemas},
 })
 
 export default config
