@@ -21,7 +21,7 @@ function Main({ children }: { children: React.ReactNode }) {
           },
         }}
         exit={{ opacity: 0 }}
-        className='relative container top-20 xl:top-0'
+        className='relative top-20 xl:top-0'
       >
         {children}
       </motion.main>
