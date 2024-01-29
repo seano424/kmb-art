@@ -5,13 +5,17 @@ import React from 'react'
 import Link from 'next/link'
 import {usePathname} from 'next/navigation'
 import {NavItems} from '@/sanity/hooks/getNavItems'
+import {Playfair_Display, Inter} from 'next/font/google'
+
+const playfairDisplay = Playfair_Display({subsets: ['latin']})
+const inter = Inter({subsets: ['latin']})
 
 function NavItemsDesktop(navItems: NavItems) {
   const pathname = usePathname()
 
   return (
     <ul className={clsx('hidden xl:flex justify-between items-center w-full')}>
-      <li className="flex gap-5 w-1/3">
+      <li className={clsx('flex gap-5 w-1/3 font-light', inter.className)}>
         {navItems.navigationLinks &&
           navItems.navigationLinks
             .filter((item) => item.title)
@@ -34,14 +38,14 @@ function NavItemsDesktop(navItems: NavItems) {
       </li>
 
       <Link
-        className="text-4xl"
+        className={clsx('text-4xl', playfairDisplay.className)}
         href={'/'}
       >
         Karrie Marie Baxley
       </Link>
 
-      <li className="flex gap-5 w-1/3 justify-end">
-        <Link href='/events'>Events</Link>
+      <li className={clsx('flex gap-5 w-1/3 font-light justify-end', inter.className)}>
+        <Link href="/events">Events</Link>
         {navItems.navigationLinks &&
           navItems.navigationLinks
             .filter((item) => item.title)
