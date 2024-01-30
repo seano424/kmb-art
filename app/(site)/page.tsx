@@ -17,6 +17,7 @@ export default async function Home() {
             src={urlFor(homepage.featureImage).height(800).url()}
             alt={homepage.featureImage.alt}
             fill
+            priority
           />
         )}
       </section>
