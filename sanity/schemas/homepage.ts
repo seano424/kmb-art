@@ -60,7 +60,7 @@ const homepage = {
     },
     {
       name: 'popularPrints',
-      title: 'Popular Prints',
+      title: 'Popular Pieces',
       description:
         'Select as many prints as you would like to feature on the homepage',
       type: 'array',

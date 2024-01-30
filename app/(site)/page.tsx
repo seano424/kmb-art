@@ -61,9 +61,12 @@ export default async function Home() {
       </section>
 
       {/* Popular Prints */}
-      {homepage.popularPrints && (
-        <Carousel popularPrints={homepage.popularPrints} />
-      )}
+      <section className="my-20">
+        <h3 className="text-3xl text-center pb-5">Popular Pieces</h3>
+        {homepage.popularPrints && (
+          <Carousel popularPrints={homepage.popularPrints} />
+        )}
+      </section>
     </>
   )
 }
