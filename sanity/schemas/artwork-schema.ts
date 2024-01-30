@@ -35,10 +35,11 @@ const artWork = {
           { title: 'Alcohol Inks', value: 'alcohol-inks' },
           { title: 'Paintings', value: 'paintings' },
           { title: 'Charcoals/Pastels', value: 'charcoals' },
+          { title: 'Book', value: 'book' },
         ],
         layout: 'dropdown',
       },
-      validation: (Rule: Rule) => Rule.required(),
+      
     },
     {
       name: 'featureImage',
