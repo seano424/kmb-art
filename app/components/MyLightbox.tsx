@@ -42,14 +42,14 @@ const MyLightbox = ({ images, grid = false }: Props) => {
         }))}
       />
 
-      <div className="grid grid-cols-3 gap-x-5 gap-y-10">
+      <div className="grid lg:grid-cols-3 gap-x-5 gap-y-10">
         {images.map((img, i) => (
           <button
             className="flex flex-col gap-3"
             onClick={() => handleLightbox(i)}
             key={i}
           >
-            <div className="relative w-full h-[400px] z-40 bg-gray-100 group hover:bg-gray-200 transition-all duration-1000 ease-in-out">
+            <div className="relative w-full h-[400px] bg-gray-100 group hover:bg-gray-200 transition-all duration-1000 ease-in-out">
               <Image
                 className="object-cover py-4 px-8 group-hover:scale-95 transform transition-all duration-1000 ease-in-out"
                 src={urlFor(img.image).width(600).url()}
