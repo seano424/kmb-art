@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import urlFor from '@/sanity/urlFor'
 import getHomepage from '@/sanity/hooks/getHomepage'
+import Carousel from '../components/PopularProjectsCarousel'
 
 export default async function Home() {
   const homepage = await getHomepage()
@@ -58,6 +59,11 @@ export default async function Home() {
             </Link>
           ))}
       </section>
+
+      {/* Popular Prints */}
+      {homepage.popularPrints && (
+        <Carousel popularPrints={homepage.popularPrints} />
+      )}
     </>
   )
 }

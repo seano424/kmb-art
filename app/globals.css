@@ -22,3 +22,8 @@
 .yarl__slide_title {
   color: black !important;
 }
+
+.react-multi-carousel-track {
+  display: flex;
+  gap: 0.5rem;
+}

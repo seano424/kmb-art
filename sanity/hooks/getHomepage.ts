@@ -15,11 +15,12 @@ export type Homepage = {
   _updatedAt: Date
   popularPrints?: [
     {
+      alt?: string
+      _type: string
       image: {
-        _type: string
         asset: {
           _type: string
-          _key: string
+          _ref: string
         }
       }
     }
@@ -72,7 +73,7 @@ async function getHomepage(): Promise<Homepage> {
     `
   )
   const data = await fetch(url.toString(), {
-    next: {tags: ['homepage'], revalidate: devMode ? 1 : 60},
+    next: { tags: ['homepage'], revalidate: devMode ? 1 : 60 },
   })
   const json = await data.json()
   return json.result
