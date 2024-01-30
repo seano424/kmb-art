@@ -29,28 +29,22 @@ export default async function Work({ params }: Props) {
 
   return (
     <div>
-      {work.title && (
-        <h3 className='container text-right tracking-widest'>{work.title}</h3>
-      )}
-      {work.description && (
-        <h3 className='container text-right tracking-widest'>
-          {work.description}
-        </h3>
-      )}
-
-      <div className='pt-20'>
-        {work.images && <MyLightbox images={work.images} />}
+      <div className='mb-10'>
+        {work.title && <h3 className="text-2xl text-gray-400">{work.title}</h3>}
+        {work.description && <h4>{work.description}</h4>}
       </div>
 
-      <div className='py-10 container'>
-        <h3 className='tracking-widest'>Related Works</h3>
-        <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-10 pt-5'>
+      {work.images && <MyLightbox images={work.images} />}
+
+      <div className="my-20">
+        <h3 className="tracking-widest text-3xl">Related Works</h3>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 pt-5">
           {works
             .filter((w) => w.title !== work.title)
             .map((filteredWork) => (
               <Link
                 href={`/work/${filteredWork.slug}`}
-                className='relative h-[500px] group'
+                className="relative h-[500px] group"
                 key={filteredWork._id}
               >
                 <Image
@@ -59,12 +53,12 @@ export default async function Work({ params }: Props) {
                     filteredWork.featureImage.alt ??
                     `Feature Image for ${filteredWork.title}`
                   }
-                  className='rounded object-cover'
-                  sizes='100vw'
+                  className="rounded object-cover"
+                  sizes="100vw"
                   fill
                 />
-                <div className='group-hover:bg-opacity-10 group-hover:opacity-100 group-focus:bg-opacity-10 group-focus:opacity-100 opacity-0 absolute inset-0 flex justify-center items-center bg-opacity-0 bg-white transition-all duration-100 ease-linear p-10'>
-                  <p className='uppercase text-3xl text-white'>
+                <div className="group-hover:bg-opacity-10 group-hover:opacity-100 group-focus:bg-opacity-10 group-focus:opacity-100 opacity-0 absolute inset-0 flex justify-center items-center bg-opacity-0 bg-white transition-all duration-100 ease-linear p-10">
+                  <p className="uppercase text-3xl text-white">
                     {filteredWork.title}
                   </p>
                 </div>

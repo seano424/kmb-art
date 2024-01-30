@@ -42,25 +42,22 @@ const MyLightbox = ({ images, grid = false }: Props) => {
         }))}
       />
 
-      <div
-        className={clsx(
-          grid
-            ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'
-            : 'flex flex-col items-center gap-10 sm:gap-20 xl:gap-48',
-          'container'
-        )}
-      >
+      <div className="grid grid-cols-3 gap-x-5 gap-y-10">
         {images.map((img, i) => (
-          <button onClick={() => handleLightbox(i)} key={i}>
-            <Image
-              src={urlFor(img.image).width(600).url()}
-              alt={img.alt ?? 'Artwork image by Karrie Marie Baxley'}
-              width={600}
-              height={600}
-            />
-            {img.alt && (
-              <p className='text-zinc-500 text-left text-sm mt-5'>{img.alt}</p>
-            )}
+          <button
+            className="flex flex-col gap-3"
+            onClick={() => handleLightbox(i)}
+            key={i}
+          >
+            <div className="relative w-full h-[400px] z-40 bg-gray-100 group hover:bg-gray-200 transition-all duration-1000 ease-in-out">
+              <Image
+                className="object-cover py-4 px-8 group-hover:scale-95 transform transition-all duration-1000 ease-in-out"
+                src={urlFor(img.image).width(600).url()}
+                alt={img.alt ?? 'Artwork image by Karrie Marie Baxley'}
+                fill
+              />
+            </div>
+            {img.alt && <p>{img.alt}</p>}
           </button>
         ))}
       </div>
