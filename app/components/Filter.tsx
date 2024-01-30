@@ -62,7 +62,7 @@ export const Filter = ({ images }: Props) => {
       <div
         className={clsx(
           'grid gap-10 mb-10',
-          filterValue === '' ? 'grid-cols-4' : 'grid-cols-1'
+          filterValue === '' ? 'grid-cols-1 lg:grid-cols-4' : 'grid-cols-1'
         )}
       >
         {images
