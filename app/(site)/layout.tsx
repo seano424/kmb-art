@@ -1,10 +1,11 @@
 import '../globals.css'
 import clsx from 'clsx'
-import {Metadata} from 'next'
+import { Metadata } from 'next'
 import Nav from '../components/Nav'
-import {Playfair_Display} from 'next/font/google'
-import {Analytics} from '@vercel/analytics/react'
+import { Playfair_Display } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
 import Main from '../components/Main'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.karriemariebaxley.com'),
@@ -32,11 +33,11 @@ export const metadata: Metadata = {
   keywords: ['Karrie Marie Baxley', 'Kansas City Artist and Painter'],
   creator: `Sean O'Reilly`,
   icons: '/favicon.ico',
-  verification: {google: '0L3Tmxx4oLHcu1uU5VEdOO__BbzXhWzED_wvBvidZs8'},
+  verification: { google: '0L3Tmxx4oLHcu1uU5VEdOO__BbzXhWzED_wvBvidZs8' },
   robots: 'index, follow',
 }
 
-const playfair = Playfair_Display({subsets: ['latin']})
+const playfair = Playfair_Display({ subsets: ['latin'] })
 
 const devMode = process.env.devMode
 
@@ -58,6 +59,7 @@ export default async function RootLayout({
         <Nav />
         <Main>{children}</Main>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
