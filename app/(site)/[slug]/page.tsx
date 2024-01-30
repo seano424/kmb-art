@@ -25,7 +25,7 @@ export default async function Page({ params }: Props) {
   const page = await getPage(params.slug)
 
   return (
-    <div className='flex flex-col items-center gap-10 container py-5'>
+    <div className='flex flex-col items-center gap-10 mb-20'>
       <div className='flex flex-col items-center gap-10 max-w-2xl'>
         {page?.image && (
           <div className='relative h-[300px] w-[300px]'>
@@ -43,7 +43,7 @@ export default async function Page({ params }: Props) {
           </div>
         )}
       </div>
-      <div className='max-w-7xl'>
+      <div className='w-full'>
         {page?.images && <MyLightbox grid images={page.images} />}
       </div>
     </div>
