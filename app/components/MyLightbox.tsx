@@ -51,7 +51,7 @@ const MyLightbox = ({ images, grid = false }: Props) => {
           >
             <div className="relative w-full h-[400px] bg-gray-100 group hover:bg-gray-200 transition-all duration-1000 ease-in-out">
               <Image
-                className="object-cover py-4 px-8 group-hover:scale-95 transform transition-all duration-1000 ease-in-out"
+                className="object-cover py-4 px-8 dark:p-0 group-hover:scale-95 transform transition-all duration-1000 ease-in-out"
                 src={urlFor(img.image).width(600).url()}
                 alt={img.alt ?? 'Artwork image by Karrie Marie Baxley'}
                 fill
