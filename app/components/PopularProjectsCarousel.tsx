@@ -63,8 +63,11 @@ export default function PopularProjectsCarousel({
         arrows={false}
         className="relative"
       >
-        {popularPrints?.map((print) => (
-          <div className="flex flex-col gap-3">
+        {popularPrints?.map((print, i) => (
+          <div
+            key={i}
+            className="flex flex-col gap-3"
+          >
             <div
               key={print.image.asset._ref}
               className="relative h-[300px]"
