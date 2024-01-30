@@ -52,7 +52,8 @@ export default async function RootLayout({
         className={clsx(
           devMode && 'debug-screens',
           'max-w-8xl mx-auto scroll-smooth container',
-          playfair.className
+          playfair.className,
+          'dark:bg-black dark:text-white'
         )}
       >
         {/* @ts-expect-error Server Component */}

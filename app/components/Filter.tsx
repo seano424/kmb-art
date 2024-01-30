@@ -27,12 +27,6 @@ export const Filter = ({ images }: Props) => {
     <div className="grid gap-10 py-5">
       <div className="flex justify-center lg:justify-end w-full rounded-2xl">
         <div className="flex gap-3 md:gap-10">
-          {/* {filters.map((filter) => (
-            <div
-              className={clsx(filter.title === 'All Works' && 'text-blue-600')}
-            ></div>
-          ))} */}
-
           <LayoutGroup>
             {filters.map((filter) => (
               <motion.button
@@ -41,7 +35,7 @@ export const Filter = ({ images }: Props) => {
                 className={clsx(
                   filterValue === filter.value
                     ? ' text-blue-600'
-                    : 'no-underline text-gray-900',
+                    : 'no-underline text-gray-900 dark:text-white',
                   'relative transition-all duration-300 ease-linear',
                   'md:text-lg text-xs hover:text-blue-600'
                 )}

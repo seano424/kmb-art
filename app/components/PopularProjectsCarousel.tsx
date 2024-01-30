@@ -105,7 +105,9 @@ const ButtonGroup = ({
     <div className="absolute inset-0 flex items-start justify-end gap-3">
       <button
         className={
-          currentSlide === 0 ? 'text-gray-300 cursor-default' : 'text-gray-900'
+          currentSlide === 0
+            ? 'text-gray-300 cursor-default dark:text-gray-900'
+            : 'text-gray-900 dark:text-gray-300'
         }
         onClick={() => previous && previous()}
       >
@@ -126,7 +128,9 @@ const ButtonGroup = ({
       </button>
       <button
         className={
-          disableNext ? 'text-gray-300 cursor-default' : 'text-gray-900'
+          disableNext
+            ? 'text-gray-300 dark:text-gray-900 cursor-default'
+            : 'text-gray-900 dark:text-gray-300'
         }
         onClick={() => next && next()}
       >

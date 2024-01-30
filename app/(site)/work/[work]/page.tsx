@@ -18,7 +18,7 @@ export async function generateMetadata({
   const work = await getWork(slug)
 
   return {
-    title: work.title ?? 'Work by Karrie Marie',
+    title: work?.title ?? 'Work by Karrie Marie',
   }
 }
 

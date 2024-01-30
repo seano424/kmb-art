@@ -13,7 +13,7 @@ export default function NavMobile(navItems: NavItems) {
       <nav
         className={clsx(
           'xl:hidden fixed left-0 right-0 top-0 py-5 z-20 container',
-          'bg-white uppercase flex items-center'
+          'bg-white uppercase flex items-center dark:bg-black dark:text-white'
         )}
       >
         <div className='w-full flex items-center justify-between gap-2'>

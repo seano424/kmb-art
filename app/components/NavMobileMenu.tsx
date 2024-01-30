@@ -15,7 +15,7 @@ export default function NavMobileMenu(props: Props) {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          key='mobile-menu'
+          key="mobile-menu"
           initial={{ translateY: -300 }}
           animate={{
             translateY: 0,
@@ -34,12 +34,12 @@ export default function NavMobileMenu(props: Props) {
               },
             },
           }}
-          className='xl:hidden py-10 fixed top-16 left-0 right-0 z-10 bg-white flex flex-col items-center gap-10'
+          className="xl:hidden py-10 fixed top-16 left-0 right-0 z-10 bg-white dark:bg-black flex flex-col items-center gap-10"
         >
           {navItems.navigationLinks.map((navLink, i) => (
             <Link
               onClick={() => setIsOpen((prev) => !prev)}
-              className='font-black text-3xl hover:underline focus:underline transition-all duration-300 ease-linear'
+              className="font-black text-3xl hover:underline focus:underline transition-all duration-300 ease-linear"
               key={i}
               href={`/${navLink.slug}`}
             >

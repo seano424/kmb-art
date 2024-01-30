@@ -3,12 +3,12 @@
 import clsx from 'clsx'
 import React from 'react'
 import Link from 'next/link'
-import {usePathname} from 'next/navigation'
-import {NavItems} from '@/sanity/hooks/getNavItems'
-import {Playfair_Display, Inter} from 'next/font/google'
+import { usePathname } from 'next/navigation'
+import { NavItems } from '@/sanity/hooks/getNavItems'
+import { Playfair_Display, Inter } from 'next/font/google'
 
-const playfairDisplay = Playfair_Display({subsets: ['latin']})
-const inter = Inter({subsets: ['latin']})
+const playfairDisplay = Playfair_Display({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] })
 
 function NavItemsDesktop(navItems: NavItems) {
   const pathname = usePathname()
@@ -38,14 +38,21 @@ function NavItemsDesktop(navItems: NavItems) {
       </li>
 
       <Link
-        className={clsx('text-4xl', playfairDisplay.className)}
+        className={clsx(
+          'text-4xl dark:text-blue-500',
+          playfairDisplay.className
+        )}
         href={'/'}
       >
         Karrie Marie Baxley
       </Link>
 
-      <li className={clsx('flex gap-5 w-1/3 font-light justify-end', inter.className)}>
-        <Link href="/events">Events</Link>
+      <li
+        className={clsx(
+          'flex gap-5 w-1/3 font-light justify-end',
+          inter.className
+        )}
+      >
         {navItems.navigationLinks &&
           navItems.navigationLinks
             .filter((item) => item.title)

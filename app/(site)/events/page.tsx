@@ -29,7 +29,7 @@ export default async function Events() {
             <h2 className="text-4xl font-light text-center">{event.title}</h2>
 
             {event?.content && (
-              <div className="text-lg text-center text-gray-700 w-full">
+              <div className="text-lg text-center text-gray-700 dark:text-gray-300 w-full">
                 <PortableText value={event.content} />
               </div>
             )}
