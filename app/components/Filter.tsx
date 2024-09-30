@@ -60,7 +60,10 @@ export const Filter = ({ images }: Props) => {
         )}
       >
         {images
-          .filter((image) => image.category!.includes(filterValue))
+          .filter((image) => {
+            if (filterValue === '') return true
+            return image.category && image.category.includes(filterValue)
+          })
           .map((filteredWork) => (
             <Link
               href={`/work/${filteredWork.slug}`}
